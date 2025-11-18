@@ -147,24 +147,82 @@ function showNationTechnique(nation) {
 }
 </script>
 <script>
-// Сделать названия техники кликабельными
-document.addEventListener('DOMContentLoaded', function() {
-    // Добавляем ссылки на карточки техники
-    const techniqueCards = document.querySelectorAll('.access-card, .vehicle-item');
+// Делаем названия техники кликабельными
+function makeTechniqueClickable() {
+    console.log('Запуск функции makeTechniqueClickable');
     
-    techniqueCards.forEach(card => {
+    // Находим все карточки с техникой
+    const techniqueCards = document.querySelectorAll('.access-card, .vehicle-card, .vehicle-item');
+    console.log('Найдено карточек:', techniqueCards.length);
+    
+    techniqueCards.forEach((card, index) => {
         const title = card.querySelector('h3');
         if (title) {
+            console.log('Обрабатываем карточку:', index, title.textContent);
+            
+            // Создаем ссылку
             const techniqueName = title.textContent.toLowerCase().replace(/\s+/g, '-');
             const link = document.createElement('a');
             link.href = `vehicle-details.html?vehicle=${techniqueName}`;
             link.style.color = 'inherit';
             link.style.textDecoration = 'none';
-            link.innerHTML = title.innerHTML;
+            link.style.cursor = 'pointer';
+            link.style.display = 'block';
+            
+            // Заменяем h3 на ссылку
+            const titleContent = title.innerHTML;
+            link.innerHTML = `<h3 style="margin:0; padding:0; color: #ff9900;">${titleContent}</h3>`;
             title.parentNode.replaceChild(link, title);
+            
+            // Делаем всю карточку кликабельной
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('a')) {
+                    window.location.href = `vehicle-details.html?vehicle=${techniqueName}`;
+                }
+            });
         }
     });
-});
+}
+
+// Запускаем когда страница загружена
+document.addEventListener('DOMContentLoaded', makeTechniqueClickable);
+
+// Если DOM уже загружен
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', makeTechniqueClickable);
+} else {
+    makeTechniqueClickable();
+}
 </script>
+/* Делаем карточки техники кликабельными */
+.access-card, 
+.vehicle-card, 
+.vehicle-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.access-card:hover, 
+.vehicle-card:hover, 
+.vehicle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
+}
+
+/* Ссылки в названиях техники */
+.access-card h3 a,
+.vehicle-card h3 a, 
+.vehicle-item h3 a {
+    color: #ff9900 !important;
+    text-decoration: none !important;
+}
+
+.access-card h3 a:hover,
+.vehicle-card h3 a:hover,
+.vehicle-item h3 a:hover {
+    color: #ffcc80 !important;
+    text-decoration: underline !important;
+}
 </body>
 </html>

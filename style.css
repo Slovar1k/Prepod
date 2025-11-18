@@ -69,7 +69,7 @@ nav ul li a:hover {
 
 /* Герой секция */
 .hero {
-    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://images.wallpapersden.com/image/download/war-thunder-video-game_bGdnaGeUmZqaraWkpJRnZWltrWZmamc.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/nfirNfDXfVQ/maxresdefault.jpg') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     align-items: center;
@@ -284,17 +284,17 @@ height: 150px;
     height: 100px;
 }
 .ostrie{
-    width: 500px;
+    width: 300px;
     height: 200px;
 }
 .box{
-    width: 400px;
+    width: 350px;
     height: 300px ;
      position: relative;
   top:-30px;
 }
 .r400{
-    width: 475px ;
+    width: 325px ;
     height: 200px;
 }
 .logowt{
@@ -342,15 +342,31 @@ height: 150px;
     background-color: transparent;
     color: #ff9900;
 }
-/* Стили для кликабельных названий техники */
-.access-card h3 a, 
+/* Делаем карточки техники кликабельными */
+.access-card, 
+.vehicle-card, 
+.vehicle-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.access-card:hover, 
+.vehicle-card:hover, 
+.vehicle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
+}
+
+/* Ссылки в названиях техники */
+.access-card h3 a,
+.vehicle-card h3 a, 
 .vehicle-item h3 a {
     color: #ff9900 !important;
     text-decoration: none !important;
-    transition: color 0.3s ease !important;
 }
 
 .access-card h3 a:hover,
+.vehicle-card h3 a:hover,
 .vehicle-item h3 a:hover {
     color: #ffcc80 !important;
     text-decoration: underline !important;
