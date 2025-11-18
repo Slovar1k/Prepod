@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War Thunder - Официальный фан-сайт</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a1929;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(to right, #1a3a5f, #0a1929);
+            padding: 20px 0;
+            border-bottom: 2px solid #ff8c00;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #ff8c00;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff8c00;
+            color: #0a1929;
+        }
+
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 41, 0.8), rgba(10, 25, 41, 0.8)), 
+                        url('https://via.placeholder.com/1200x600/1a3a5f/ffffff?text=War+Thunder+Battle') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff8c00;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: #0a1929;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffa94d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        /* Секции */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff8c00;
+            font-size: 32px;
+        }
+
+        /* Техника */
+        .vehicles {
+            background-color: #0f2744;
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vehicle-card {
+            background-color: #1a3a5f;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .vehicle-img {
+            height: 200px;
+            background-color: #2a4a75;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0e0;
+            font-size: 18px;
+        }
+
+        .vehicle-content {
+            padding: 20px;
+        }
+
+        .vehicle-content h3 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        /* Нации */
+        .nations {
+            background-color: #0a1929;
+        }
+
+        .nation-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background-color: #1a3a5f;
+            color: #e0e0e0;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #ff8c00;
+            color: #0a1929;
+        }
+
+        .tab-content {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a3a5f;
+            border-radius: 8px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Новости */
+        .news {
+            background-color: #0f2744;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background-color: #1a3a5f;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-img {
+            height: 180px;
+            background-color: #2a4a75;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0e0;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-content h3 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Статистика */
+        .stats {
+            background-color: #0a1929;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background-color: #1a3a5f;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            color: #ff8c00;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #0a1929;
+            border-top: 2px solid #ff8c00;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #e0e0e0;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff8c00;
+        }
+
+        .copyright {
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            .hero-content h2 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Заглушка для логотипа -->
+                    <div style="width: 50px; height: 50px; background-color: #ff8c00; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #0a1929; font-weight: bold;">WT</div>
+                    <h1>War Thunder</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#vehicles">Техника</a></li>
+                        <li><a href="#nations">Нации</a></li>
+                        <li><a href="#news">Новости</a></li>
+                        <li><a href="#stats">Статистика</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Война громов</h2>
+            <p>Присоединяйтесь к эпическим сражениям на земле, в воздухе и на море в самой реалистичной военной MMO игре</p>
+            <a href="#" class="btn">Играть бесплатно</a>
+        </div>
+    </section>
+
+    <!-- Техника -->
+    <section id="vehicles" class="vehicles">
+        <div class="container">
+            <h2 class="section-title">Боевая техника</h2>
+            <div class="vehicle-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-img">Танк Т-34</div>
+                    <div class="vehicle-content">
+                        <h3>Танки</h3>
+                        <p>Бронированные машины для наземных сражений. От легких разведчиков до тяжелых штурмовых орудий.</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <div class="vehicle-img">Самолет Spitfire</div>
+                    <div class="vehicle-content">
+                        <h3>Авиация</h3>
+                        <p>Истребители, бомбардировщики и штурмовики для завоевания господства в воздухе.</p>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <div class="vehicle-img">Эсминец</div>
+                    <div class="vehicle-content">
+                        <h3>Флот</h3>
+                        <p>Боевые корабли и катера для морских баталий. От патрульных катеров до линкоров.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Нации -->
+    <section id="nations" class="nations">
+        <div class="container">
+            <h2 class="section-title">Игровые нации</h2>
+            <div class="nation-tabs">
+                <button class="tab-btn active" data-tab="usa">США</button>
+                <button class="tab-btn" data-tab="germany">Германия</button>
+                <button class="tab-btn" data-tab="ussr">СССР</button>
+                <button class="tab-btn" data-tab="britain">Великобритания</button>
+                <button class="tab-btn" data-tab="japan">Япония</button>
+            </div>
+            <div class="tab-content active" id="usa">
+                <h3>Соединенные Штаты Америки</h3>
+                <p>Мощная авиация, универсальные танки и сильный флот. Американская техника отличается надежностью и сбалансированностью.</p>
+            </div>
+            <div class="tab-content" id="germany">
+                <h3>Германия</h3>
+                <p>Передовые технологии, мощные орудия и отличная броня. Немецкая техника известна своей точностью и разрушительной силой.</p>
+            </div>
+            <div class="tab-content" id="ussr">
+                <h3>СССР</h3>
+                <p>Простая, но эффективная техника с мощным вооружением. Советские танки славятся своей живучестью, а самолеты - маневренностью.</p>
+            </div>
+            <div class="tab-content" id="britain">
+                <h3>Великобритания</h3>
+                <p>Высококачественная техника с отличным вооружением. Британские танки имеют прочную броню, а самолеты - хорошую живучесть.</p>
+            </div>
+            <div class="tab-content" id="japan">
+                <h3>Япония</h3>
+                <p>Легкая и маневренная техника с отличным вооружением. Японские самолеты отличаются превосходной маневренностью.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title">Последние новости</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img">Обновление "Новые горизонты"</div>
+                    <div class="news-content">
+                        <div class="news-date">15 мая 2023</div>
+                        <h3>Новое обновление вышло!</h3>
+                        <p>Добавлена новая техника, карты и игровые режимы. Узнайте все детали обновления "Новые горизонты".</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">Кубок чемпионов</div>
+                    <div class="news-content">
+                        <div class="news-date">10 мая 2023</div>
+                        <h3>Начинается турнир</h3>
+                        <p>Примите участие в Кубке чемпионов War Thunder. Крупные призы и звание лучшего экипажа ждут победителей!</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">Новая нация</div>
+                    <div class="news-content">
+                        <div class="news-date">5 мая 2023</div>
+                        <h3>Франция присоединяется к битве</h3>
+                        <p>Техника Франции теперь доступна в War Thunder. Исследуйте уникальные танки и самолеты этой нации.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <h2 class="section-title">War Thunder в цифрах</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="players-count">0</div>
+                    <div class="stat-label">Активных игроков</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="vehicles-count">0</div>
+                    <div class="stat-label">Единиц техники</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="nations-count">0</div>
+                    <div class="stat-label">Игровых наций</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="battles-count">0</div>
+                    <div class="stat-label">Сыграно сражений</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div style="width: 40px; height: 40px; background-color: #ff8c00; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #0a1929; font-weight: bold;">WT</div>
+                    <h2>War Thunder</h2>
+                </div>
+                <div class="social-links">
+                    <a href="#">VK</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Discord</a>
+                </div>
+                <p class="copyright">© 2023 War Thunder Fan Site. Этот сайт не является официальным и создан в ознакомительных целях.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Табы для наций
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Убираем активный класс у всех кнопок и контента
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Добавляем активный класс к текущей кнопке
+                    btn.classList.add('active');
+                    
+                    // Показываем соответствующий контент
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Анимация счетчиков статистики
+            function animateCounter(elementId, finalValue, duration = 2000) {
+                const element = document.getElementById(elementId);
+                let startValue = 0;
+                const increment = finalValue / (duration / 16); // 60 FPS
+                
+                function updateCounter() {
+                    startValue += increment;
+                    if (startValue < finalValue) {
+                        element.textContent = Math.floor(startValue).toLocaleString();
+                        setTimeout(updateCounter, 16);
+                    } else {
+                        element.textContent = finalValue.toLocaleString();
+                    }
+                }
+                
+                updateCounter();
+            }
+            
+            // Запускаем анимацию счетчиков при прокрутке до секции
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('players-count', 150000);
+                        animateCounter('vehicles-count', 2000);
+                        animateCounter('nations-count', 10);
+                        animateCounter('battles-count', 50000000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.getElementById('stats'));
+            
+            // Плавная прокрутка для навигации
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
