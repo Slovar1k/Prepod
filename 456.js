@@ -1,131 +1,164 @@
-// Табы для наций
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    // Функция для переключения табов
-    function switchTab(tabId) {
-        // Убираем активный класс у всех кнопок и контента
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
-        
-        // Добавляем активный класс к текущей кнопке
-        document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-        
-        // Показываем соответствующий контент
-        document.getElementById(tabId).classList.add('active');
-    }
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const tabId = btn.getAttribute('data-tab');
-            switchTab(tabId);
-        });
-    });
-    
-    // Анимация счетчиков статистики
-    function animateCounter(elementId, finalValue, duration = 2000) {
-        const element = document.getElementById(elementId);
-        let startValue = 0;
-        const increment = finalValue / (duration / 16); // 60 FPS
-        
-        function updateCounter() {
-            startValue += increment;
-            if (startValue < finalValue) {
-                element.textContent = Math.floor(startValue).toLocaleString();
-                setTimeout(updateCounter, 16);
-            } else {
-                element.textContent = finalValue.toLocaleString();
-            }
-        }
-        
-        updateCounter();
-    }
-    
-    // Запускаем анимацию счетчиков при прокрутке до секции
-    const statsSection = document.getElementById('stats');
-    let statsAnimated = false;
-    
-    function checkStatsVisibility() {
-        const sectionTop = statsSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (sectionTop < windowHeight - 100 && !statsAnimated) {
-            animateCounter('players-count', 150000);
-            animateCounter('vehicles-count', 2000);
-            animateCounter('nations-count', 10);
-            animateCounter('battles-count', 50000000);
-            statsAnimated = true;
-        }
-    }
-    
-    // Проверяем видимость при загрузке и прокрутке
-    window.addEventListener('load', checkStatsVisibility);
-    window.addEventListener('scroll', checkStatsVisibility);
-    
+    initializePage();
+    setupEventListeners();
+    startStatsAnimation();
+});
+
+function initializePage() {
     // Плавная прокрутка для навигации
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
-    
-    // Добавляем класс при прокрутке для шапки
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.background = 'linear-gradient(to right, #0a1929, #0a1929)';
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-        } else {
-            header.style.background = 'linear-gradient(to right, #1a3a5f, #0a1929)';
-            header.style.boxShadow = 'none';
-        }
-    });
-    
-    // Анимация появления элементов при прокрутке
-    const animatedElements = document.querySelectorAll('.vehicle-card, .news-card, .stat-item');
-    
-    function checkElementsVisibility() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight - 50) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // Устанавливаем начальные стили для анимации
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // Проверяем видимость при загрузке и прокрутке
-    window.addEventListener('load', checkElementsVisibility);
-    window.addEventListener('scroll', checkElementsVisibility);
-    
-    // Обработчик для кнопки "Играть бесплатно"
-    const playButton = document.querySelector('.hero .btn');
+}
+
+function setupEventListeners() {
+    // Кнопка "Играть сейчас"
+    const playButton = document.getElementById('playNow');
     if (playButton) {
-        playButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Добро пожаловать в War Thunder! Перенаправляем на официальный сайт игры...');
-            // В реальном сайте здесь будет перенаправление
+        playButton.addEventListener('click', function() {
+            alert('Перенаправление на официальный сайт War Thunder...');
             // window.location.href = 'https://warthunder.com';
         });
     }
+
+    // Фильтрация техники
+    const filterButtons = document.querySelectorAll('.vehicle-type-btn');
+    const vehicleCards = document.querySelectorAll('.vehicle-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Убираем активный класс у всех кнопок
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем активный класс текущей кнопке
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-type');
+            
+            vehicleCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-type') === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Анимация при наведении на карточки наций
+    const nationCards = document.querySelectorAll('.nation-card');
+    nationCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const nation = this.getAttribute('data-nation');
+            this.style.borderColor = getNationColor(nation);
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        });
+    });
+}
+
+function getNationColor(nation) {
+    const colors = {
+        'usa': '#00308F',
+        'germany': '#000000',
+        'ussr': '#CC0000',
+        'britain': '#00247D'
+    };
+    return colors[nation] || '#ff8c00';
+}
+
+function startStatsAnimation() {
+    // Анимированные счетчики статистики
+    const onlinePlayers = document.getElementById('onlinePlayers');
+    const totalBattles = document.getElementById('totalBattles');
+    const activePlayers = document.getElementById('activePlayers');
+
+    if (onlinePlayers && totalBattles && activePlayers) {
+        animateCounter(onlinePlayers, 0, 125847, 2000);
+        animateCounter(totalBattles, 0, 45896217, 2500);
+        animateCounter(activePlayers, 0, 89234, 1800);
+    }
+}
+
+function animateCounter(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value.toLocaleString();
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            element.classList.add('count-up');
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Параллакс эффект для герой секции
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
 });
+
+// Обработка изменения размера окна
+window.addEventListener('resize', function() {
+    // Можно добавить адаптивные изменения при необходимости
+});
+
+// Дополнительные функции для будущего расширения
+class WarThunderSite {
+    constructor() {
+        this.initialized = false;
+    }
+
+    init() {
+        if (this.initialized) return;
+        
+        console.log('War Thunder Site initialized');
+        this.initialized = true;
+        
+        // Здесь можно добавить дополнительные функции
+        this.setupVehicleDetails();
+    }
+
+    setupVehicleDetails() {
+        // Функция для показа деталей техники
+        const vehicleCards = document.querySelectorAll('.vehicle-card');
+        vehicleCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const vehicleName = this.querySelector('h3').textContent;
+                console.log(`Selected vehicle: ${vehicleName}`);
+                // Можно добавить модальное окно с детальной информацией
+            });
+        });
+    }
+}
+
+// Создаем экземпляр класса
+const wtSite = new WarThunderSite();
+wtSite.init();

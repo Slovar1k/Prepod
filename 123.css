@@ -1,440 +1,303 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #0a1929;
-    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
 }
 
-.container {
+/* Навигация */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Шапка */
-header {
-    background: linear-gradient(to right, #1a3a5f, #0a1929);
-    padding: 20px 0;
-    border-bottom: 2px solid #ff8c00;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #ff8c00;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0a1929;
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.logo-icon.small {
-    width: 40px;
-    height: 40px;
-}
-
-.logo h1 {
-    font-size: 24px;
-    color: #ff8c00;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    padding: 0 2rem;
 }
 
 .logo h2 {
-    font-size: 20px;
     color: #ff8c00;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
 }
 
-nav ul {
+.nav-menu {
     display: flex;
     list-style: none;
+    gap: 2rem;
 }
 
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: #e0e0e0;
+.nav-menu a {
+    color: white;
     text-decoration: none;
+    transition: color 0.3s;
     font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
-    background-color: #ff8c00;
-    color: #0a1929;
+.nav-menu a:hover {
+    color: #ff8c00;
 }
 
-/* Главный баннер */
+/* Герой секция */
 .hero {
-    background: linear-gradient(rgba(10, 25, 41, 0.8), rgba(10, 25, 41, 0.8)), 
-                url('https://via.placeholder.com/1200x600/1a3a5f/ffffff?text=War+Thunder+Battle') no-repeat center center/cover;
-    height: 500px;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://via.placeholder.com/1920x1080/2c3e50/ffffff?text=War+Thunder+Battle') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    margin-top: 60px;
 }
 
-.hero-content h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #ff8c00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    max-width: 700px;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
-.btn {
-    display: inline-block;
-    background-color: #ff8c00;
-    color: #0a1929;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
+.cta-button {
+    background: linear-gradient(45deg, #ff8c00, #ff6b00);
+    color: white;
     border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
 }
 
-.btn:hover {
-    background-color: #ffa94d;
-    transform: translateY(-3px);
+.cta-button:hover {
+    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
 }
 
 /* Секции */
 section {
-    padding: 60px 0;
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.section-title {
+section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
     color: #ff8c00;
-    font-size: 32px;
-}
-
-/* Техника */
-.vehicles {
-    background-color: #0f2744;
-}
-
-.vehicle-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.vehicle-card {
-    background-color: #1a3a5f;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.vehicle-card:hover {
-    transform: translateY(-10px);
-}
-
-.vehicle-img {
-    height: 200px;
-    background-color: #2a4a75;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e0e0e0;
-    font-size: 18px;
-}
-
-.vehicle-content {
-    padding: 20px;
-}
-
-.vehicle-content h3 {
-    color: #ff8c00;
-    margin-bottom: 10px;
 }
 
 /* Нации */
-.nations {
-    background-color: #0a1929;
+.nations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.nation-tabs {
+.nation-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nation-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nation-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.nation-card h3 {
+    color: #ff8c00;
+    margin-bottom: 0.5rem;
+}
+
+/* Техника */
+.vehicle-types {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    gap: 1rem;
+    margin-bottom: 3rem;
     flex-wrap: wrap;
 }
 
-.tab-btn {
-    background-color: #1a3a5f;
-    color: #e0e0e0;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
+.vehicle-type-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ff8c00;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
+    font-weight: bold;
 }
 
-.tab-btn.active {
-    background-color: #ff8c00;
-    color: #0a1929;
+.vehicle-type-btn.active,
+.vehicle-type-btn:hover {
+    background: #ff8c00;
+    color: #1a1a2e;
 }
 
-.tab-btn:hover {
-    background-color: #2a4a75;
-}
-
-.tab-btn.active:hover {
-    background-color: #ffa94d;
-}
-
-.tab-content {
-    display: none;
-    text-align: center;
-    padding: 30px;
-    background-color: #1a3a5f;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-.tab-content h3 {
-    color: #ff8c00;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.tab-content p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Новости */
-.news {
-    background-color: #0f2744;
-}
-
-.news-grid {
+.vehicles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.news-card {
-    background-color: #1a3a5f;
-    border-radius: 8px;
+.vehicle-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.news-card:hover {
+.vehicle-card:hover {
     transform: translateY(-5px);
 }
 
-.news-img {
-    height: 180px;
-    background-color: #2a4a75;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e0e0e0;
-    font-size: 16px;
+.vehicle-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
 
-.news-content {
-    padding: 20px;
-}
-
-.news-content h3 {
+.vehicle-card h3 {
+    padding: 1rem 1rem 0.5rem;
     color: #ff8c00;
-    margin-bottom: 10px;
 }
 
-.news-date {
-    color: #a0a0a0;
-    font-size: 14px;
-    margin-bottom: 10px;
+.vehicle-card p {
+    padding: 0 1rem 1rem;
+    opacity: 0.8;
 }
+
+.nation-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0 1rem 1rem;
+}
+
+.nation-badge.usa { background: #00308F; }
+.nation-badge.germany { background: #000000; }
+.nation-badge.ussr { background: #CC0000; }
+.nation-badge.britain { background: #00247D; }
 
 /* Статистика */
-.stats {
-    background-color: #0a1929;
-    text-align: center;
-}
-
-.stats-grid {
+.stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 2rem;
+    text-align: center;
 }
 
 .stat-item {
-    background-color: #1a3a5f;
-    padding: 30px 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.stat-item:hover {
-    transform: scale(1.05);
-}
-
-.stat-number {
-    font-size: 36px;
+.stat-item h3 {
+    font-size: 3rem;
     color: #ff8c00;
-    font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
 }
 
-.stat-label {
-    font-size: 16px;
-    color: #e0e0e0;
-}
-
-/* Подвал */
+/* Футер */
 footer {
-    background-color: #0a1929;
-    border-top: 2px solid #ff8c00;
-    padding: 40px 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
     text-align: center;
+    margin-top: 4rem;
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.footer-content p {
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
 }
 
-.social-links {
-    margin: 20px 0;
+/* Анимации */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.social-links a {
-    display: inline-block;
-    margin: 0 10px;
-    color: #e0e0e0;
-    font-size: 20px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    color: #ff8c00;
-}
-
-.copyright {
-    color: #a0a0a0;
-    font-size: 14px;
-    margin-top: 10px;
+.count-up {
+    animation: countUp 1s ease-out;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .header-content {
+    .nav-container {
         flex-direction: column;
+        gap: 1rem;
     }
 
-    nav ul {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+    .nav-menu {
+        gap: 1rem;
     }
 
-    nav ul li {
-        margin: 5px;
-    }
-
-    .hero-content h2 {
-        font-size: 36px;
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 
     .hero-content p {
-        font-size: 18px;
+        font-size: 1.2rem;
     }
 
-    .nation-tabs {
-        flex-direction: column;
-        align-items: center;
+    section {
+        padding: 3rem 1rem;
     }
 
-    .tab-btn {
-        width: 200px;
-        margin: 5px 0;
+    .vehicle-types {
+        gap: 0.5rem;
     }
 
-    .section-title {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 400px;
-    }
-
-    .hero-content h2 {
-        font-size: 28px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .section-title {
-        font-size: 24px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .vehicle-type-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }

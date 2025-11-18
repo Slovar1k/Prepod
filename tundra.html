@@ -4,177 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>War Thunder - Официальный фан-сайт</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Шапка -->
     <header>
-        <div class="container">
-            <div class="header-content">
+        <nav class="navbar">
+            <div class="nav-container">
                 <div class="logo">
-                    <div class="logo-icon">WT</div>
-                    <h1>War Thunder</h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#vehicles">Техника</a></li>
-                        <li><a href="#nations">Нации</a></li>
-                        <li><a href="#news">Новости</a></li>
-                        <li><a href="#stats">Статистика</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Главный баннер -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>Война громов</h2>
-            <p>Присоединяйтесь к эпическим сражениям на земле, в воздухе и на море в самой реалистичной военной MMO игре</p>
-            <a href="#" class="btn">Играть бесплатно</a>
-        </div>
-    </section>
-
-    <!-- Техника -->
-    <section id="vehicles" class="vehicles">
-        <div class="container">
-            <h2 class="section-title">Боевая техника</h2>
-            <div class="vehicle-grid">
-                <div class="vehicle-card">
-                    <div class="vehicle-img">Танк Т-34</div>
-                    <div class="vehicle-content">
-                        <h3>Танки</h3>
-                        <p>Бронированные машины для наземных сражений. От легких разведчиков до тяжелых штурмовых орудий.</p>
-                    </div>
-                </div>
-                <div class="vehicle-card">
-                    <div class="vehicle-img">Самолет Spitfire</div>
-                    <div class="vehicle-content">
-                        <h3>Авиация</h3>
-                        <p>Истребители, бомбардировщики и штурмовики для завоевания господства в воздухе.</p>
-                    </div>
-                </div>
-                <div class="vehicle-card">
-                    <div class="vehicle-img">Эсминец</div>
-                    <div class="vehicle-content">
-                        <h3>Флот</h3>
-                        <p>Боевые корабли и катера для морских баталий. От патрульных катеров до линкоров.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Нации -->
-    <section id="nations" class="nations">
-        <div class="container">
-            <h2 class="section-title">Игровые нации</h2>
-            <div class="nation-tabs">
-                <button class="tab-btn active" data-tab="usa">США</button>
-                <button class="tab-btn" data-tab="germany">Германия</button>
-                <button class="tab-btn" data-tab="ussr">СССР</button>
-                <button class="tab-btn" data-tab="britain">Великобритания</button>
-                <button class="tab-btn" data-tab="japan">Япония</button>
-            </div>
-            <div class="tab-content active" id="usa">
-                <h3>Соединенные Штаты Америки</h3>
-                <p>Мощная авиация, универсальные танки и сильный флот. Американская техника отличается надежностью и сбалансированностью.</p>
-            </div>
-            <div class="tab-content" id="germany">
-                <h3>Германия</h3>
-                <p>Передовые технологии, мощные орудия и отличная броня. Немецкая техника известна своей точностью и разрушительной силой.</p>
-            </div>
-            <div class="tab-content" id="ussr">
-                <h3>СССР</h3>
-                <p>Простая, но эффективная техника с мощным вооружением. Советские танки славятся своей живучестью, а самолеты - маневренностью.</p>
-            </div>
-            <div class="tab-content" id="britain">
-                <h3>Великобритания</h3>
-                <p>Высококачественная техника с отличным вооружением. Британские танки имеют прочную броню, а самолеты - хорошую живучесть.</p>
-            </div>
-            <div class="tab-content" id="japan">
-                <h3>Япония</h3>
-                <p>Легкая и маневренная техника с отличным вооружением. Японские самолеты отличаются превосходной маневренностью.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Новости -->
-    <section id="news" class="news">
-        <div class="container">
-            <h2 class="section-title">Последние новости</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img">Обновление "Новые горизонты"</div>
-                    <div class="news-content">
-                        <div class="news-date">15 мая 2023</div>
-                        <h3>Новое обновление вышло!</h3>
-                        <p>Добавлена новая техника, карты и игровые режимы. Узнайте все детали обновления "Новые горизонты".</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">Кубок чемпионов</div>
-                    <div class="news-content">
-                        <div class="news-date">10 мая 2023</div>
-                        <h3>Начинается турнир</h3>
-                        <p>Примите участие в Кубке чемпионов War Thunder. Крупные призы и звание лучшего экипажа ждут победителей!</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">Новая нация</div>
-                    <div class="news-content">
-                        <div class="news-date">5 мая 2023</div>
-                        <h3>Франция присоединяется к битве</h3>
-                        <p>Техника Франции теперь доступна в War Thunder. Исследуйте уникальные танки и самолеты этой нации.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Статистика -->
-    <section id="stats" class="stats">
-        <div class="container">
-            <h2 class="section-title">War Thunder в цифрах</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" id="players-count">0</div>
-                    <div class="stat-label">Активных игроков</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="vehicles-count">0</div>
-                    <div class="stat-label">Единиц техники</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="nations-count">0</div>
-                    <div class="stat-label">Игровых наций</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="battles-count">0</div>
-                    <div class="stat-label">Сыграно сражений</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="logo">
-                    <div class="logo-icon small">WT</div>
                     <h2>War Thunder</h2>
                 </div>
-                <div class="social-links">
-                    <a href="#">VK</a>
-                    <a href="#">YouTube</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Discord</a>
-                </div>
-                <p class="copyright">© 2023 War Thunder Fan Site. Этот сайт не является официальным и создан в ознакомительных целях.</p>
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#nations">Нации</a></li>
+                    <li><a href="#vehicles">Техника</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#stats">Статистика</a></li>
+                </ul>
             </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Добро пожаловать в War Thunder</h1>
+                <p>Самая реалистичная MMO-игра о боевой технике</p>
+                <button class="cta-button" id="playNow">Играть сейчас</button>
+            </div>
+        </section>
+
+        <section id="nations" class="nations-section">
+            <h2>Воюющие нации</h2>
+            <div class="nations-grid">
+                <div class="nation-card" data-nation="usa">
+                    <img src="https://via.placeholder.com/200x120/00308F/FFFFFF?text=USA" alt="США">
+                    <h3>США</h3>
+                    <p>Авиация, бронетехника, флот</p>
+                </div>
+                <div class="nation-card" data-nation="germany">
+                    <img src="https://via.placeholder.com/200x120/000000/FFFFFF?text=Germany" alt="Германия">
+                    <h3>Германия</h3>
+                    <p>Танки, самолеты, корабли</p>
+                </div>
+                <div class="nation-card" data-nation="ussr">
+                    <img src="https://via.placeholder.com/200x120/CC0000/FFFFFF?text=USSR" alt="СССР">
+                    <h3>СССР</h3>
+                    <p>Авиация, бронетехника, флот</p>
+                </div>
+                <div class="nation-card" data-nation="britain">
+                    <img src="https://via.placeholder.com/200x120/00247D/FFFFFF?text=Britain" alt="Великобритания">
+                    <h3>Великобритания</h3>
+                    <p>Самолеты, танки, флот</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vehicles" class="vehicles-section">
+            <h2>Боевая техника</h2>
+            <div class="vehicle-types">
+                <button class="vehicle-type-btn active" data-type="all">Все</button>
+                <button class="vehicle-type-btn" data-type="tanks">Танки</button>
+                <button class="vehicle-type-btn" data-type="planes">Самолеты</button>
+                <button class="vehicle-type-btn" data-type="ships">Корабли</button>
+            </div>
+            <div class="vehicles-grid">
+                <div class="vehicle-card" data-type="tanks">
+                    <img src="https://via.placeholder.com/250x150/666666/FFFFFF?text=T-34" alt="Т-34">
+                    <h3>Т-34-85</h3>
+                    <p>Средний танк • БР 5.7</p>
+                    <span class="nation-badge ussr">СССР</span>
+                </div>
+                <div class="vehicle-card" data-type="planes">
+                    <img src="https://via.placeholder.com/250x150/666666/FFFFFF?text=BF-109" alt="BF-109">
+                    <h3>Bf 109 G-6</h3>
+                    <p>Истребитель • БР 4.7</p>
+                    <span class="nation-badge germany">Германия</span>
+                </div>
+                <div class="vehicle-card" data-type="ships">
+                    <img src="https://via.placeholder.com/250x150/666666/FFFFFF?text=Destroyer" alt="Эсминец">
+                    <h3>USS Fletcher</h3>
+                    <p>Эсминец • БР 4.7</p>
+                    <span class="nation-badge usa">США</span>
+                </div>
+                <div class="vehicle-card" data-type="tanks">
+                    <img src="https://via.placeholder.com/250x150/666666/FFFFFF?text=Tiger" alt="Тигр">
+                    <h3>Pz.VI Tiger</h3>
+                    <p>Тяжелый танк • БР 5.3</p>
+                    <span class="nation-badge germany">Германия</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats-section">
+            <h2>Статистика игроков</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3 id="onlinePlayers">0</h3>
+                    <p>Игроков онлайн</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="totalBattles">0</h3>
+                    <p>Всего боев</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="activePlayers">0</h3>
+                    <p>Активных игроков</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 War Thunder Fan Site. Неофициальный фан-сайт.</p>
+            <p>Все права на игру принадлежат Gaijin Entertainment</p>
         </div>
     </footer>
 
