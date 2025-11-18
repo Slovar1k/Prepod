@@ -21,6 +21,7 @@
                         <li><a href="technique.html">Техника</a></li>
                         <li><a href="nations.html">Нации</a></li>
                         <li><a href="news.html">Новости</a></li>
+                        <li><a href="aviation-wiki.html">Энциклопедия</a></li>
                         <li><a href="about.html">О игре</a></li>
                     </ul>
                 </nav>
@@ -195,34 +196,6 @@ if (document.readyState === 'loading') {
     makeTechniqueClickable();
 }
 </script>
-/* Делаем карточки техники кликабельными */
-.access-card, 
-.vehicle-card, 
-.vehicle-item {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.access-card:hover, 
-.vehicle-card:hover, 
-.vehicle-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
-}
-
-/* Ссылки в названиях техники */
-.access-card h3 a,
-.vehicle-card h3 a, 
-.vehicle-item h3 a {
-    color: #ff9900 !important;
-    text-decoration: none !important;
-}
-
-.access-card h3 a:hover,
-.vehicle-card h3 a:hover,
-.vehicle-item h3 a:hover {
-    color: #ffcc80 !important;
-    text-decoration: underline !important;
-}
 </body>
 </html>
