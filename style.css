@@ -38,21 +38,6 @@ header {
     display: flex;
     align-items: center;
 }
-
-.logo-icon {
-    width: 50px;
-    height: 50px;
-    background: #ff9900;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0a0f1e;
-    font-weight: bold;
-    font-size: 20px;
-    margin-right: 15px;
-}
-
 .logo h1 {
     font-size: 24px;
     color: #ff9900;
