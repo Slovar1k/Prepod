@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техника - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">WT</div>
+                    <h1>WAR THUNDER</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="technique.html">Техника</a></li>
+                        <li><a href="nations.html">Нации</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li><a href="about.html">О игре</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>ВОЕННАЯ ТЕХНИКА</h2>
+                <p>Исследуйте более 2000 единиц исторически точной военной техники</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="aviation">
+        <div class="container">
+            <h2 class="section-title">АВИАЦИЯ<img src="image/Sukhoi_Su-27_silhouette.svg.png" class="air"></h2>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/96-961742_fighter-plane-silhouette-portable-network-graphics.png" class="tank_logo"></div>
+                    <h3>Истребители</h3>
+                    <p>Более 300 моделей</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/i (6).png" class="bomb"></div>
+                    <h3>Бомбардировщики</h3>
+                    <p>Стратегическая авиация</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/i (7).png" class="vert"></div>
+                    <h3>Вертолеты</h3>
+                    <p>Современная авиация</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section id="tanks">
+        <div class="container">
+            <h2 class="section-title">Танки и бронетехника<img src="image/pngwing-com-(21).png" class="tank"></h2>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/i (5)-no-bg-preview (carve.photos).png" class="tank_logo"></div>
+                    <h3>Танки</h3>
+                    <p>Более 1000 моделей</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/bmp_1.png" class="tank_logo"></div>
+                    <h3>Бмп</h3>
+                    <p>легкая техника имеющую бпла для разведки</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/self-propelled-howitzer-silhouette-raised-barrel-m-no-bg-preview (carve.photos).png" class="sau"></div>
+                    <h3>Сау</h3>
+                    <p>Самоходная артилеристская установка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section id="fleet">
+        <div class="container">
+            <h2 class="section-title">Корабли<img src="image/i-_4_-no-bg-preview (carve.photos).png" class="water"></h2>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/oborona-2012-11_img9502-no-bg-preview (carve.photos).png" class="fregat"></div>
+                    <h3>Фрегаты</h3>
+                    <p>Легкие корабли для разведки</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/i (8)-no-bg-preview (carve.photos).png" class="tank_logo"></div>
+                    <h3>Эсминцы</h3>
+                    <p>Средний корабль</p>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon"><img src="image/i (9)-no-bg-preview (carve.photos).png" class="tank_logo"></div>
+                    <h3>линкор</h3>
+                    <p>Огромный корабли способный в пух и прах разнести вражеску позицию</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2023 War Thunder Fan Site. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+// Обработка выбора нации
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const nation = urlParams.get('nation');
+    
+    if (nation) {
+        // Показываем технику выбранной нации
+        showNationTechnique(nation);
+    }
+});
+
+function showNationTechnique(nation) {
+    const nationTitles = {
+        'usa': 'ТЕХНИКА США',
+        'germany': 'ТЕХНИКА ГЕРМАНИИ', 
+        'ussr': 'ТЕХНИКА СССР',
+        'uk': 'ТЕХНИКА ВЕЛИКОБРИТАНИИ',
+        'japan': 'ТЕХНИКА ЯПОНИИ',
+        'china': 'ТЕХНИКА КИТАЯ'
+    };
+    
+    // Обновляем заголовок
+    const title = document.querySelector('.hero h2');
+    if (title && nationTitles[nation]) {
+        title.textContent = nationTitles[nation];
+    }
+    
+    // Можно добавить фильтрацию техники по нации
+    console.log('Показать технику для:', nation);
+}
+</script>
+</body>
+</html>
