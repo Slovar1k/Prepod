@@ -124,12 +124,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function showNationTechnique(nation) {
     const nationTitles = {
-        'usa': 'hstv.l',
-        'germany': 'ТЕХНИКА ГЕРМАНИИ', 
-        'ussr': 'ТЕХНИКА СССР',
-        'uk': 'ТЕХНИКА ВЕЛИКОБРИТАНИИ',
-        'japan': 'ТЕХНИКА ЯПОНИИ',
-        'china': 'ТЕХНИКА КИТАЯ'
+        'usa': 'HSTV-L,M1A1 HC,M1A2 SEP V2, CLAWS,M1128',
+        'germany': 'PUMA VJTF, LEOPARD 2K, LEOPARD 2A7V, IRIS-T SLM, WIESEL 1A2', 
+        'ussr': 'Т-90М, Т-80БВМ, 2С25М, Хризантема-С, 9К317М"БУК-М3"',
+        'uk': 'Challenger 2E, Black Night, Vickers Mk.7, Desert Warior, Sky Sabre, VFM5, Rooikat MTTD',
+        'japan': 'TKX(P), Type10, TKX, Type 16, Tan-SAM Kai, BM Oplot-T',
+        'china': 'VT4A1, ZTZ99A, CS/SA5 ZBD04A',
+        'italy': 'Centauro I 120, Ariete AMV, FSAF SAMP/T, Freccia, Leopard 2A7HU',
+        'french': 'Vextra 105, Leclerc AZUR, Leopard 2A6NL, FSAF SAMPT/T(MAMBA), EBRC Jaguar',
+        'sweeden':'CV 90120-T, Strc 122B+, Elde 98, CV 90 Mk.4, Leopard 2A6',
+        'israel':'Sabra Mk.1, Merkava Mk.4M, SPYDER, Namer Tsrikhon',
     };
     
     // Обновляем заголовок
@@ -141,6 +145,26 @@ function showNationTechnique(nation) {
     // Можно добавить фильтрацию техники по нации
     console.log('Показать технику для:', nation);
 }
+</script>
+<script>
+// Сделать названия техники кликабельными
+document.addEventListener('DOMContentLoaded', function() {
+    // Добавляем ссылки на карточки техники
+    const techniqueCards = document.querySelectorAll('.access-card, .vehicle-item');
+    
+    techniqueCards.forEach(card => {
+        const title = card.querySelector('h3');
+        if (title) {
+            const techniqueName = title.textContent.toLowerCase().replace(/\s+/g, '-');
+            const link = document.createElement('a');
+            link.href = `vehicle-details.html?vehicle=${techniqueName}`;
+            link.style.color = 'inherit';
+            link.style.textDecoration = 'none';
+            link.innerHTML = title.innerHTML;
+            title.parentNode.replaceChild(link, title);
+        }
+    });
+});
 </script>
 </body>
 </html>

@@ -342,3 +342,16 @@ height: 150px;
     background-color: transparent;
     color: #ff9900;
 }
+/* Стили для кликабельных названий техники */
+.access-card h3 a, 
+.vehicle-item h3 a {
+    color: #ff9900 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.access-card h3 a:hover,
+.vehicle-item h3 a:hover {
+    color: #ffcc80 !important;
+    text-decoration: underline !important;
+}
