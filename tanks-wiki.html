@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авиация - War Thunder Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wiki-container {
+            background-color: #1a2332;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nation-section {
+            margin-bottom: 40px;
+            border: 1px solid #2a3a50;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .nation-header {
+            background: linear-gradient(135deg, #2a3a50, #1a2a3a);
+            padding: 20px;
+            border-bottom: 2px solid #ff9900;
+        }
+        
+        .nation-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ff9900;
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .nation-flag {
+            font-size: 32px;
+        }
+        
+        .era-tabs {
+            display: flex;
+            background-color: #2a3a50;
+            border-bottom: 1px solid #3a4a60;
+            flex-wrap: wrap;
+        }
+        
+        .era-tab {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-weight: bold;
+        }
+        
+        .era-tab:hover {
+            background-color: #3a4a60;
+        }
+        
+        .era-tab.active {
+            background-color: #3a4a60;
+            border-bottom-color: #ff9900;
+            color: #ff9900;
+        }
+        
+        .era-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .era-content.active {
+            display: block;
+        }
+        
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .vehicle-card {
+            background-color: #2a3a50;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-3px);
+            border-color: #ff9900;
+            background-color: #334663;
+        }
+        
+        .vehicle-image {
+            width: 100%;
+            height: 80px;
+            background-color: #3a4a60;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #8a8a8a;
+        }
+        
+        .vehicle-name {
+            color: #ff9900;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .vehicle-br {
+            color: #e0e0e0;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .vehicle-type {
+            color: #8a8a8a;
+            font-size: 11px;
+        }
+        
+        .search-section {
+            background-color: #2a3a50;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 15px;
+            background-color: #1a2332;
+            border: 1px solid #ff9900;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .search-box::placeholder {
+            color: #8a8a8a;
+        }
+        
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .category-filter {
+            background-color: #1a2332;
+            border: 1px solid #ff9900;
+            color: #e0e0e0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .category-filter.active {
+            background-color: #ff9900;
+            color: #0a0f1e;
+        }
+        
+        .category-filter:hover {
+            background-color: #ff9900;
+            color: #0a0f1e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/maxresdefault.png" class="logowt"></div>
+                    <h1>WIKI</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="aviation-wiki.html" style="background-color: #ff9900; color: #0a0f1e;">Авиация</a></li>
+                        <li><a href="tanks-wiki.html">Танки</a></li>
+                        <li><a href="fleet-wiki.html">Флот</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>ЭНЦИКЛОПЕДИЯ ТАНКОВ</h2>
+                <p>Полный список всех самолетов и вертолетов в War Thunder</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="search-section">
+                <input type="text" class="search-box" placeholder="Поиск самолета..." id="searchInput">
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">Все</button>
+                    <button class="category-filter" data-category="ht">Тяжедый Танк</button>
+                    <button class="category-filter" data-category="mt">Средний Танк</button>
+                    <button class="category-filter" data-category="lt">Легкий Танк/Бмп</button>
+                    <button class="category-filter" data-category="sau">САУ</button>
+                </div>
+            </div>
+
+            <div class="wiki-container">
+                <!-- США -->
+              <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_the_United_States_(1912-1959).svg.png" class="flag"></span>
+                            США
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="usa-era5">V эра</button>
+                        <button class="era-tab" data-era="usa-era6">VI эра</button>
+                        <button class="era-tab" data-era="usa-era7">VII эра</button>
+                        <button class="era-tab" data-era="usa-era8">VIII эра</button>
+                    </div>
+                    <div class="era-content"id="usa-era6">
+                        <div class="vehicle-grid">
+                            
+                        </div>
+                    </div>
+                    <div class="era-content"id="usa-era7">
+                        <div class="vehicle-grid">
+                        
+                        </div>
+                    </div>
+                    <div class="era-content active" id="usa-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f-16a.png" class="f16"></div>
+                                <div class="vehicle-name">F-16A Fighting Falcon</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СССР -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Russian_Federation_(2022_proposal).png" class="flag"></span>
+                            СССР
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="ussr-era5">V ранг</button>
+                        <button class="era-tab" data-era="ussr-era6">VI ранг</button>
+                        <button class="era-tab" data-era="ussr-era7">VII ранг</button>
+                        <button class="era-tab" data-era="ussr-era8">VIII ранг</button>
+                    </div>
+                    <div class="era-content" id="ussr-era7">
+                    </div>
+                    <div class="era-content active" id="ussr-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="md">
+                                <div class="vehicle-image">T-90M</div>
+                                <div class="vehicle-name">Т-90М</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Средний Танк</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Германия -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Germany.svg.png" class="flag"></span>
+                            Германия
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="germany-era5">V ранг</button>
+                        <button class="era-tab" data-era="germany-era6">VI ранг</button>
+                        <button class="era-tab" data-era="germany-era7">VII ранг</button>
+                        <button class="era-tab" data-era="germany-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="germany-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image">mi</div>
+                                <div class="vehicle-name">МиГ-29Г</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image">EF-2000</div>
+                                <div class="vehicle-name">Eurofighter Typhoon</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Великобритания -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Great_Britain_4_by_3.png" class="flag"></span>
+                            Великобритании
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="uk-era5">V ранг</button>
+                        <button class="era-tab" data-era="uk-era6">VI ранг</button>
+                        <button class="era-tab" data-era="uk-era7">VII ранг</button>
+                        <button class="era-tab" data-era="uk-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="uk-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image">МиГ-29</div>
+                                <div class="vehicle-name">МиГ-29Г</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image">EF-2000</div>
+                                <div class="vehicle-name">Eurofighter Typhoon</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Истребитель</div>
+                            </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Табы эпох
+        document.addEventListener('DOMContentLoaded', function() {
+            // Переключение эпох
+            const eraTabs = document.querySelectorAll('.era-tab');
+            eraTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const nationSection = this.closest('.nation-section');
+                    const eraId = this.getAttribute('data-era');
+                    
+                    // Деактивируем все табы в этой нации
+                    nationSection.querySelectorAll('.era-tab').forEach(t => t.classList.remove('active'));
+                    nationSection.querySelectorAll('.era-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Активируем выбранный
+                    this.classList.add('active');
+                    document.getElementById(eraId).classList.add('active');
+                });
+            });
+            
+            // Фильтрация по категориям
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Активная кнопка
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Фильтрация карточек
+                    const allCards = document.querySelectorAll('.vehicle-card');
+                    allCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-type') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Поиск
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchText = this.value.toLowerCase();
+                const allCards = document.querySelectorAll('.vehicle-card');
+                
+                allCards.forEach(card => {
+                    const vehicleName = card.querySelector('.vehicle-name').textContent.toLowerCase();
+                    if (vehicleName.includes(searchText)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Клик по карточке
+            const vehicleCards = document.querySelectorAll('.vehicle-card');
+            vehicleCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const vehicleName = this.querySelector('.vehicle-name').textContent;
+                    const vehicleId = vehicleName.toLowerCase().replace(/\s+/g, '-');
+                    window.location.href = `vehicle-details.html?vehicle=${vehicleId}`;
+                });
+            });
+        });
+    </script>
+    <nav>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="aviation-wiki.html" style="background-color: #ff9900; color: #0a0f1e;">Энциклопедия</a></li>
+        <li><a href="nations.html">Нации</a></li>
+    </ul>
+</nav>
+</body>
+</html>
