@@ -146,55 +146,5 @@ function showNationTechnique(nation) {
     console.log('Показать технику для:', nation);
 }
 </script>
-<script>
-// Делаем названия техники кликабельными
-function makeTechniqueClickable() {
-    console.log('Запуск функции makeTechniqueClickable');
-    
-    // Находим все карточки с техникой
-    const techniqueCards = document.querySelectorAll('.access-card, .vehicle-card, .vehicle-item');
-    console.log('Найдено карточек:', techniqueCards.length);
-    
-    techniqueCards.forEach((card, index) => {
-        const title = card.querySelector('h3');
-        if (title) {
-            console.log('Обрабатываем карточку:', index, title.textContent);
-            
-            // Создаем ссылку
-            const techniqueName = title.textContent.toLowerCase().replace(/\s+/g, '-');
-            const link = document.createElement('a');
-            link.href = `vehicle-details.html?vehicle=${techniqueName}`;
-            link.style.color = 'inherit';
-            link.style.textDecoration = 'none';
-            link.style.cursor = 'pointer';
-            link.style.display = 'block';
-            
-            // Заменяем h3 на ссылку
-            const titleContent = title.innerHTML;
-            link.innerHTML = `<h3 style="margin:0; padding:0; color: #ff9900;">${titleContent}</h3>`;
-            title.parentNode.replaceChild(link, title);
-            
-            // Делаем всю карточку кликабельной
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('a')) {
-                    window.location.href = `vehicle-details.html?vehicle=${techniqueName}`;
-                }
-            });
-        }
-    });
-}
-
-// Запускаем когда страница загружена
-document.addEventListener('DOMContentLoaded', makeTechniqueClickable);
-
-// Если DOM уже загружен
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', makeTechniqueClickable);
-} else {
-    makeTechniqueClickable();
-}
-</script>
-
 </body>
 </html>
