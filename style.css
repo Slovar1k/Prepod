@@ -375,3 +375,17 @@ height: 150px;
     width: 100px;
     height: 75px;
 }
+.video-section {
+    margin: 30px 0;
+}
+
+.video-container {
+    background-color: #2a3a50;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ff9900;
+}
+
+.video-container iframe {
+    border-radius: 4px;
+}

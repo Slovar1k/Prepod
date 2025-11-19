@@ -281,6 +281,7 @@
             title:'F-16A Fighting Falcon',
             subtitle:'американский однодвигательный многоцелевой истребитель четвёртого поколения. Разработан компанией General Dynamics (сейчас Lockheed Martin) для ВВС США',
             icon: '🛩️',
+            video: 'videos/f-16a-fighting-falcon.mp4',
             nation: 'США',
             type: 'Реактивный Истребитель',
             br: '13.3',
@@ -464,7 +465,29 @@
                         </div>
                     </div>
                 </div>
-                
+                    ${vehicle.video ? `
+    <div class="video-section">
+        <h3 class="section-title">ВИДЕООБЗОР</h3>
+        <div class="video-container">
+            <iframe 
+                width="100%" 
+                height="400" 
+                src="${vehicle.video}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    ` : ''}
+    
+    <div class="info-sections">
+        <!-- существующие секции характеристик -->
+    </div>
+    
+    <div class="history-section">
+        <!-- существующая историческая справка -->
+    </div>
                 <div class="info-sections">
                     <div class="info-section">
                         <h3 class="section-title">ЛЁТНО-ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
