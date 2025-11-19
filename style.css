@@ -21,7 +21,7 @@ body {
 /* Шапка */
 header {
     background: linear-gradient(to right, #1a2a3a, #0a1428);
-    padding: 20px 0;
+    padding: 15px 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
@@ -298,7 +298,7 @@ height: 150px;
     height: 200px;
 }
 .logowt{
-    width: 135px;
+    width: 200px;
     height: 115px;
 }
 .tank_logo{
@@ -392,4 +392,62 @@ height: 150px;
 .pantsir{
     width: 150px;
     height: 75px;
+}
+.tankwiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/2MTQKk0dpLA/maxresdefault.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.aviawiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/fskDuy9-DpI/maxresdefault.jpg?v=68ccaf20') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.logobutton{
+    width: 50px;
+    height: 35px;
+}
+/* Стили для кликабельных карточек новостей */
+.news-card {
+    background-color: #1a2332;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 153, 0, 0.2);
+    border: 1px solid #ff9900;
+}
+
+.news-card::after {
+    content: '🔗';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 153, 0, 0.9);
+    color: #0a0f1e;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-card:hover::after {
+    opacity: 1;
 }

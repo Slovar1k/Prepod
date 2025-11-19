@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новость - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-detail {
+            background-color: #1a2332;
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-header {
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .news-date {
+            color: #8a8a8a;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            color: #ff9900;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 400px;
+            background-color: #2a3a50;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #8a8a8a;
+        }
+        
+        .news-content {
+            line-height: 1.8;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .news-content p {
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff9900;
+            color: #0a0f1e;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid #ff9900;
+        }
+        
+        .back-btn:hover {
+            background-color: transparent;
+            color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">WT</div>
+                    <h1>WAR THUNDER</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="aviation-wiki.html">Энциклопедия</a></li>
+                        <li><a href="my-technique.html">Моя техника</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 id="news-main-title">НОВОСТИ</h2>
+                <p id="news-subtitle">Актуальные события и обновления</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="news-detail">
+                <div id="news-content">
+                    <!-- Сюда загрузится контент новости -->
+                </div>
+                <a href="index.html" class="back-btn">← Назад к новостям</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // База данных новостей
+        const newsDatabase = {
+            '1': {
+                title: 'Новое обновление "Огненные небеса"',
+                date: '15 мая 2023',
+                image: '🔥',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">15 мая 2023</div>
+                        <h1 class="news-title">Новое обновление "Огненные небеса"</h1>
+                    </div>
+                    
+                    <div class="news-image">🔥</div>
+                    
+                    <div class="news-content">
+                        <p>Мы рады представить масштабное обновление "Огненные небеса", которое привнесет в игру множество новых возможностей и улучшений!</p>
+                        
+                        <h3 style="color: #ff9900; margin: 25px 0 15px 0;">Основные изменения:</h3>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li>Добавлено 12 новых самолетов</li>
+                            <li>Полностью переработана физика полета</li>
+                            <li>Улучшена графика и текстуры</li>
+                            <li>Добавлены новые карты для авиационных боев</li>
+                            <li>Балансные изменения для техники всех наций</li>
+                        </ul>
+                        
+                        <p>Обновление уже доступно для загрузки. Размер обновления составляет 4.7 ГБ. Рекомендуем установить его для получения наилучшего игрового опыта.</p>
+                    </div>
+                `
+            },
+            '2': {
+                title: 'Киберспортивный турнир War Thunder',
+                date: '10 мая 2023',
+                image: '🏆',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">10 мая 2023</div>
+                        <h1 class="news-title">Киберспортивный турнир War Thunder</h1>
+                    </div>
+                    
+                    <div class="news-image">🏆</div>
+                    
+                    <div class="news-content">
+                        <p>Регистрация на киберспортивный турнир War Thunder открыта! Призовой фонд составляет $50,000.</p>
+                        
+                        <h3 style="color: #ff9900; margin: 25px 0 15px 0;">Детали турнира:</h3>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li>Дата проведения: 15-30 июня 2023</li>
+                            <li>Формат: 5х5, режим "Захват"</li>
+                            <li>Призовой фонд: $50,000</li>
+                            <li>Регистрация до: 10 июня 2023</li>
+                        </ul>
+                        
+                        <p>Для участия необходимо собрать команду из 5 игроков и зарегистрироваться на официальном сайте турнира.</p>
+                    </div>
+                `
+            },
+            '3': {
+                title: 'Новые тактические режимы',
+                date: '5 мая 2023',
+                image: '🎯',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">5 мая 2023</div>
+                        <h1 class="news-title">Новые тактические режимы</h1>
+                    </div>
+                    
+                    <div class="news-image">🎯</div>
+                    
+                    <div class="news-content">
+                        <p>В игру добавлены три новых режима сражений с уникальными правилами и задачами.</p>
+                        
+                        <h3 style="color: #ff9900; margin: 25px 0 15px 0;">Новые режимы:</h3>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li><strong>Штурм базы</strong> - защита ключевых объектов</li>
+                            <li><strong>Тактический прорыв</strong> - динамичная смена позиций</li>
+                            <li><strong>Эскадренный бой</strong> - командное взаимодействие</li>
+                        </ul>
+                        
+                        <p>Каждый режим предлагает уникальные тактические возможности и требует особого подхода к ведению боя.</p>
+                    </div>
+                `
+            }
+        };
+
+        // Загрузка новости
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            
+            if (newsId && newsDatabase[newsId]) {
+                const news = newsDatabase[newsId];
+                document.getElementById('news-content').innerHTML = news.content;
+                document.getElementById('news-main-title').textContent = news.title;
+            } else {
+                document.getElementById('news-content').innerHTML = `
+                    <div class="news-header">
+                        <h1 class="news-title">Новость не найдена</h1>
+                    </div>
+                    <p>Запрошенная новость не существует или была удалена.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
