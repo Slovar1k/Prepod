@@ -451,3 +451,11 @@ height: 150px;
 .news-card:hover::after {
     opacity: 1;
 }
+.fleetwiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('image/fleetfon.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
