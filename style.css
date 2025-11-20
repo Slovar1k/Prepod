@@ -487,11 +487,7 @@ height: 150px;
     text-align: center;
     padding: 0 20px;
 }
-.nation-section{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-    gap: 1px;
-}
+
 .mapicon{
     width: 525px;
     height: 400px;
