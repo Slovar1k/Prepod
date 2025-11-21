@@ -515,3 +515,7 @@ ul {
     margin-inline-end: 0;
     padding: 0;
 }
+.miniflag{
+    width: 30px;
+    height: 20px;
+}
