@@ -215,6 +215,7 @@
                 title: 'F-16A Block 15 ADF Fighting Falcon',
                 subtitle: '- Многоцелевой истребитель ПВО',
                 image:'<img src="image/f-16a-adf.jpg" class="infovehlogo">',
+                background:'image/f16adfdetails.gif',
                 nation: 'США',
                 type: 'Реактивный Истребитель',
                 br: '12.3',
@@ -1204,6 +1205,10 @@
             // Обновляем заголовок страницы
             document.getElementById('page-title').textContent = vehicle.title;
             document.getElementById('page-subtitle').textContent = 'Подробные характеристики и история';
+             const heroSection = document.querySelector('.hero');
+            if (heroSection && vehicle.background) {
+                heroSection.style.background = `linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('${vehicle.background}') no-repeat center center/cover`;
+            }
 
             // Создаем контент
             const content = document.getElementById('vehicle-content');
