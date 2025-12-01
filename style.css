@@ -519,3 +519,46 @@ ul {
     width: 30px;
     height: 20px;
 }
+.history-photo {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.history-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 2000px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 153, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.history-photo img:hover {
+    transform: scale(1.01);
+}
+
+.history-photo-caption {
+    color: #8a8a8a;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .history-section {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .history-photo img {
+        max-height: 300px;
+    }
+}
+.background{
+    width: 100%;
+    height: auto;
+    max-height: 2000px;
+}
