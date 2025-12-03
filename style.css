@@ -162,7 +162,7 @@ section {
 .access-card {
     background-color: #1a2332;
     border-radius: 8px;
-    padding: 30px 20px;
+    padding: 30px 30px;
     text-align: center;
     text-decoration: none;
     color: #e0e0e0;
@@ -633,4 +633,29 @@ ul {
     margin: 0 auto;
     max-width: 1200px;
     
+}
+/* В style.css */
+.access-card.aviation {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://staticfiles-ru.warthunder.com/upload/image/!2023/12/upd/art_int/art_int/3840x2160_air_superiority_logo_7d14b56eca5c179d2df1796363539c2a.jpg') no-repeat center center;
+    background-size: 160% auto; 
+}
+
+.access-card.tanks {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://store.pixstorm.ru/img/items/45E8B779-1227-48CA-BCAA-A67DA2B5F99A_inner.jpg') no-repeat center center;
+                background-size: 160% auto; 
+}
+
+.access-card.fleet {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://staticfiles-ru.warthunder.com/upload/image/media/wallpapers/kusen_tei_13_1942_2560x1140_logo_ru_5a791f46fd876f2bcb4a6cfc7e1cf1be.jpg') no-repeat center center;
+                background-size: 160% auto; 
+}
+
+.access-card.nation {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://kosmokid.ru/media/zemlya%20copy.gif') no-repeat center center;
+                background-size: 160% auto;
+                background-position: 70% 30%; 
 }
