@@ -658,3 +658,49 @@ ul {
                 background-size: 160% auto;
                 background-position: 70% 30%; 
 }
+.hero-technik{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://forum-en-cdn.warthunder.com/original/3X/c/8/c8072a74cbc5f8a57bb498a5cf58faf694694edb.jpeg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-nations{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://staticfiles.warthunder.com/upload/image/0_2025/6_June/Sale/summersale2025_940_78d603b3e371e601f75320b3715641b3.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-nations h2{  
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.hero-nations p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.newsfon h2{
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.newsfon p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.hero-technik h2{
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.hero-technik p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
