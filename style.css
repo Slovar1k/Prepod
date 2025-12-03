@@ -570,3 +570,11 @@ ul {
     width: 95px;
     height: 100px;
 }
+.encyclopedia{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://staticfiles.warthunder.com/upload/image/!2025/10/news/23_10_2024_ingame_discounts/940x530_ingame_discounts_0c0d8492d5396bb315af5c4328ea8f30.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
