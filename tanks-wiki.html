@@ -951,6 +951,82 @@
     
     // Также запускаем с задержкой на всякий случай
     setTimeout(handleNationFilter, 1500);
+
+    function handleCategoryFilter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    
+    console.log('Категория из URL:', category);
+    
+    if (category) {
+        const categoryMap = {
+            'ht': 'Тяжелый танк',
+            'mt': 'Средний танк',
+            'lt': 'Легкий танк/БМП',
+            'sau': 'САУ',
+            'zsu':'ЗРК'
+        };
+        
+        const targetCategory = categoryMap[category];
+        
+        if (targetCategory) {
+            console.log('Ищем категорию:', targetCategory);
+            
+            // Ждем загрузки
+            setTimeout(() => {
+                // Нажимаем на соответствующую кнопку фильтра
+                const filterButtons = document.querySelectorAll('.category-filter');
+                filterButtons.forEach(button => {
+                    if (button.getAttribute('data-category') === category) {
+                        console.log('Нажата кнопка фильтра:', category);
+                        button.click(); // Автоматически нажимаем кнопку
+                        
+                        // Меняем заголовок
+                        const heroTitle = document.querySelector('.hero h2');
+                        if (heroTitle) {
+                            heroTitle.textContent = targetCategory.toUpperCase();
+                        }
+                        
+                        
+                    }
+                });
+            }, 1000);
+        }
+    }
+}
+
+// Функция сброса фильтра категории
+function resetCategoryFilter() {
+    // Нажимаем кнопку "Все"
+    const allButton = document.querySelector('.category-filter[data-category="all"]');
+    if (allButton) {
+        allButton.click();
+    }
+    
+    // Возвращаем заголовок
+    const heroTitle = document.querySelector('.hero h2');
+    if (heroTitle) {
+        heroTitle.textContent = 'ЭНЦИКЛОПЕДИЯ АВИАЦИИ';
+    }
+    
+    // Убираем кнопку
+    const backBtn = document.querySelector('.show-all-btn');
+    if (backBtn) {
+        backBtn.remove();
+    }
+    
+    // Убираем параметр из URL
+    history.replaceState({}, '', 'aviation-wiki.html');
+}
+
+// Запускаем фильтрацию по категории при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    // Сначала фильтр по нации (если есть)
+    handleNationFilter();
+    
+    // Потом фильтр по категории (если есть)
+    setTimeout(handleCategoryFilter, 1500);
+});
 </script>
 </body>
 </html>
