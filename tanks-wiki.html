@@ -861,5 +861,96 @@
         <li><a href="fleet-wiki.html">Флот</a></li>
     </ul>
     </nav>
+    <script>
+    // Обработка параметра нации из URL
+    function handleNationFilter() {
+        console.log('Функция handleNationFilter запущена');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const nation = urlParams.get('nation');
+        
+        console.log('Параметр nation из URL:', nation);
+        
+        if (nation) {
+            const nationMap = {
+                'usa': 'США',
+                'germany': 'Германия',
+                'ussr': 'СССР',
+                'uk': 'Великобритания',
+                'japan': 'Япония',
+                'china': 'Китай',
+                'italy':'Италия',
+                'french':'Франция',
+                'sweeden':'Швеция',
+                'israel':'Израиль',
+
+            };
+            
+            const targetNation = nationMap[nation];
+            console.log('Ищем нацию:', targetNation);
+            
+            if (targetNation) {
+                // Ждем полной загрузки DOM
+                setTimeout(() => {
+                    console.log('Ищем секции с нацией:', targetNation);
+                    
+                    const nationSections = document.querySelectorAll('.nation-section');
+                    console.log('Найдено секций:', nationSections.length);
+                    
+                    let found = false;
+                    
+                    nationSections.forEach((section, index) => {
+                        const title = section.querySelector('.nation-title');
+                        if (title) {
+                            console.log(`Секция ${index}:`, title.textContent);
+                            
+                            // Ищем в тексте название нации
+                            if (title.textContent.includes(targetNation)) {
+                                console.log('Найдена секция! Прокручиваем...');
+                                found = true;
+                                
+                                // Прокручиваем
+                                section.scrollIntoView({ 
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                                
+                                // Подсвечиваем
+                                section.style.boxShadow = '0 0 0 3px #ff9900';
+                                section.style.transition = 'box-shadow 0.3s ease';
+                                
+                                // Меняем заголовок
+                                const heroTitle = document.querySelector('.hero h2');
+                                if (heroTitle) {
+                                    heroTitle.textContent = `АВИАЦИЯ ${targetNation.toUpperCase()}`;
+                                }
+                                
+                                // Через 3 секунды убираем подсветку
+                                setTimeout(() => {
+                                    section.style.boxShadow = 'none';
+                                }, 3000);
+                            }
+                        }
+                    });
+                    
+                    if (!found) {
+                        console.log('Секция не найдена, показываем все');
+                    }
+                }, 1000); // Увеличена задержка
+            }
+        }
+    }
+    
+    // Запускаем когда ВСЕ загрузится
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', handleNationFilter);
+    } else {
+        // Если DOM уже загружен, запускаем сразу
+        handleNationFilter();
+    }
+    
+    // Также запускаем с задержкой на всякий случай
+    setTimeout(handleNationFilter, 1500);
+</script>
 </body>
 </html>
