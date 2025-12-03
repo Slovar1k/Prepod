@@ -91,63 +91,21 @@
             padding-top: 10px;
         }
         
-        .add-video-section {
-            background: rgba(42, 58, 80, 0.5);
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 50px;
-            border: 2px dashed #ff9900;
-            text-align: center;
-        }
-        
-        .add-video-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        .form-group label {
-            display: block;
-            color: #ff9900;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background: #1a2332;
-            border: 1px solid #ff9900;
-            border-radius: 5px;
-            color: #e0e0e0;
-            font-size: 16px;
-        }
-        
-        .submit-btn {
-            background: #ff9900;
-            color: #0a0f1e;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .submit-btn:hover {
-            background: #ffcc80;
-        }
-        
         .empty-message {
             text-align: center;
             padding: 40px;
             color: #8a8a8a;
             font-style: italic;
+        }
+        
+        .admin-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(42, 58, 80, 0.5);
+            border-radius: 8px;
+            color: #8a8a8a;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -176,7 +134,7 @@
         <div class="container">
             <div class="hero-content">
                 <h2>ВИДЕОГАЛЕРЕЯ</h2>
-                <p>Ваши лучшие моменты и записи боев из War Thunder</p>
+                <p>Лучшие моменты и записи боев из War Thunder</p>
             </div>
         </div>
     </section>
@@ -189,87 +147,112 @@
                 <button class="category-btn" data-category="aviation">Авиация</button>
                 <button class="category-btn" data-category="ground">Наземная техника</button>
                 <button class="category-btn" data-category="fleet">Флот</button>
-                <button class="category-btn" data-category="tutorial">Гайды и обучение</button>
             </div>
 
             <!-- Сетка видео -->
             <div id="videoGrid" class="video-grid">
-                <!-- Видео будут добавляться через JavaScript -->
+                <!-- Видео загружаются через JavaScript -->
             </div>
 
             <!-- Сообщение если нет видео -->
             <div id="emptyMessage" class="empty-message" style="display: none;">
                 <h3>Пока нет видео в этой категории</h3>
-                <p>Добавьте первое видео с помощью формы ниже!</p>
+                <p>Новые видео добавляются администратором</p>
             </div>
 
-            <!-- Форма добавления видео -->
-            <div class="add-video-section">
-                <h3 style="color: #ff9900; margin-bottom: 20px;">ДОБАВИТЬ НОВОЕ ВИДЕО</h3>
-                <form id="addVideoForm" class="add-video-form">
-                    <div class="form-group">
-                        <label for="videoTitle">Название видео:</label>
-                        <input type="text" id="videoTitle" class="form-control" placeholder="Например: Эпический бой на F-16" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="videoUrl">Ссылка на видео (YouTube embed):</label>
-                        <input type="text" id="videoUrl" class="form-control" placeholder="https://www.youtube.com/embed/ваш_id" required>
-                        <small style="color: #8a8a8a; display: block; margin-top: 5px;">
-                            Используйте embed ссылку YouTube (Поделиться → Встроить)
-                        </small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="videoCategory">Категория:</label>
-                        <select id="videoCategory" class="form-control" required>
-                            <option value="aviation">Авиация</option>
-                            <option value="ground">Наземная техника</option>
-                            <option value="fleet">Флот</option>
-                            <option value="tutorial">Гайды и обучение</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="videoDescription">Описание:</label>
-                        <textarea id="videoDescription" class="form-control" rows="3" placeholder="Краткое описание видео..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Добавить видео</button>
-                </form>
-            </div>
+            <!-- Примечание для администратора -->
+            
         </div>
     </section>
 
     <script>
-        // База данных видео
-        let videoDatabase = JSON.parse(localStorage.getItem('warThunderVideos')) || [
+        // БАЗА ДАННЫХ ВИДЕО - редактируйте здесь
+        const videoDatabase = [
+            // === АВИАЦИЯ ===
             {
                 id: 1,
-                title: 'F-16 против МиГ-29',
-                url: 'videos/T-90M.mp4',
+                title: 'F-16 против МиГ-29 | Эпический воздушный бой',
+                url: 'https://www.youtube.com/embed/3BNnLkxvrlY',
                 category: 'aviation',
-                description: 'Эпический воздушный бой между F-16 и МиГ-29',
+                description: 'Захватывающий дуэль между американским F-16 и советским МиГ-29',
                 date: '15.05.2023',
-                views: '1.2K'
+                views: '12.5K'
             },
             {
                 id: 2,
-                title: 'Танковый бой на Abrams',
-                url: 'https://www.youtube.com/embed/lrI1-2Gw8P8',
-                category: 'ground',
-                description: 'Тактика ведения боя на M1 Abrams',
-                date: '10.05.2023',
-                views: '850'
+                title: 'Су-27СМ в бою | Демонстрация возможностей',
+                url: 'https://www.youtube.com/embed/2nQOIIIh_rI',
+                category: 'aviation',
+                description: 'Боевое применение российского истребителя Су-27СМ',
+                date: '12.05.2023',
+                views: '8.7K'
             },
             {
                 id: 3,
-                title: 'Морской бой на эсминце',
+                title: 'МиГ-29 | Взлет и боевое маневрирование',
+                url: 'https://www.youtube.com/embed/4I0F2-4N4nU',
+                category: 'aviation',
+                description: 'Показательные выступления истребителя МиГ-29',
+                date: '10.05.2023',
+                views: '6.3K'
+            },
+            
+            // === НАЗЕМНАЯ ТЕХНИКА ===
+            {
+                id: 4,
+                title: 'Танковый бой на M1 Abrams',
+                url: 'https://www.youtube.com/embed/lrI1-2Gw8P8',
+                category: 'ground',
+                description: 'Тактика ведения боя на американском танке M1 Abrams',
+                date: '18.05.2023',
+                views: '9.2K'
+            },
+            {
+                id: 5,
+                title: 'Т-90 в действии | Современный российский танк',
+                url: 'https://www.youtube.com/embed/mNfndaPT-yE',
+                category: 'ground',
+                description: 'Боевые возможности танка Т-90',
+                date: '14.05.2023',
+                views: '7.8K'
+            },
+            {
+                id: 6,
+                title: 'Леопард 2 | Немецкая бронетехника',
                 url: 'https://www.youtube.com/embed/KiVaUxERZ_E',
+                category: 'ground',
+                description: 'Обзор и боевое применение танка Leopard 2',
+                date: '11.05.2023',
+                views: '5.4K'
+            },
+            
+            // === ФЛОТ ===
+            {
+                id: 7,
+                title: 'Морской бой на эсминце',
+                url: 'https://www.youtube.com/embed/hL4lSavSep4',
                 category: 'fleet',
-                description: 'Бой на эсминце в открытом море',
-                date: '05.05.2023',
-                views: '520'
+                description: 'Эпизод морского сражения на эскадренном миноносце',
+                date: '20.05.2023',
+                views: '4.1K'
+            },
+            {
+                id: 8,
+                title: 'Крейсерская операция | Военно-морские силы',
+                url: 'https://www.youtube.com/embed/VIDEO_ID_8',
+                category: 'fleet',
+                description: 'Действия крейсера в открытом море',
+                date: '16.05.2023',
+                views: '3.2K'
+            },
+            {
+                id: 9,
+                title: 'Катерные атаки | Скоростные лодки',
+                url: 'https://www.youtube.com/embed/VIDEO_ID_9',
+                category: 'fleet',
+                description: 'Тактика использования патрульных катеров',
+                date: '13.05.2023',
+                views: '2.8K'
             }
         ];
 
@@ -331,46 +314,9 @@
             const categories = {
                 'aviation': 'Авиация',
                 'ground': 'Наземная техника',
-                'fleet': 'Флот',
-                'tutorial': 'Гайды'
+                'fleet': 'Флот'
             };
             return categories[category] || category;
-        }
-
-        // Функция добавления видео
-        function addVideo(event) {
-            event.preventDefault();
-            
-            const title = document.getElementById('videoTitle').value;
-            const url = document.getElementById('videoUrl').value;
-            const category = document.getElementById('videoCategory').value;
-            const description = document.getElementById('videoDescription').value;
-            
-            // Создаем новое видео
-            const newVideo = {
-                id: videoDatabase.length + 1,
-                title: title,
-                url: url,
-                category: category,
-                description: description || 'Без описания',
-                date: new Date().toLocaleDateString('ru-RU'),
-                views: '0'
-            };
-            
-            // Добавляем в базу данных
-            videoDatabase.push(newVideo);
-            
-            // Сохраняем в localStorage
-            localStorage.setItem('warThunderVideos', JSON.stringify(videoDatabase));
-            
-            // Очищаем форму
-            document.getElementById('addVideoForm').reset();
-            
-            // Обновляем отображение
-            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
-            displayVideos(activeCategory);
-            
-            alert('Видео успешно добавлено!');
         }
 
         // Инициализация при загрузке страницы
@@ -392,9 +338,6 @@
                     displayVideos(category);
                 });
             });
-            
-            // Обработчик формы добавления видео
-            document.getElementById('addVideoForm').addEventListener('submit', addVideo);
         });
     </script>
 </body>
