@@ -579,12 +579,12 @@ ul {
     padding: 0 20px;
 }
 .encyclopedia-full {
-    background: url('https://staticfiles.warthunder.com/upload/image/!2025/10/news/23_10_2024_ingame_discounts/940x530_ingame_discounts_0c0d8492d5396bb315af5c4328ea8f30.jpg') no-repeat center center fixed;
+    background: url('https://sun1-30.userapi.com/impf/VnOIWcEImgUdahX8O4_5vkxkOMwOFkjH-NFYJw/vDKbTa4WexE.jpg?size=1818x606&quality=95&crop=0,322,2560,853&sign=0b73d34b4609d3d92faaa28801e325c9&type=cover_group') no-repeat center center fixed;
     background-size:cover;
     position: relative;
     min-height: 100vh;
     padding: 80px 0;
-    min-height: calc(100vh - 265px);
+    min-height: calc(100vh - 267px);
 }
 
 .encyclopedia-full::before {
@@ -607,10 +607,10 @@ ul {
     z-index: 2;
 }
 
-/* Заголовок по центру */
+
 .encyclopedia-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     color: #ff9900;
     font-size: 36px;
 }
@@ -625,7 +625,6 @@ ul {
     margin-right: auto;
 }
 
-/* Карточки по центру */
 .choice-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -634,7 +633,7 @@ ul {
     max-width: 1200px;
     
 }
-/* В style.css */
+
 .access-card.aviation {
     background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
                 url('https://staticfiles-ru.warthunder.com/upload/image/!2023/12/upd/art_int/art_int/3840x2160_air_superiority_logo_7d14b56eca5c179d2df1796363539c2a.jpg') no-repeat center center;
