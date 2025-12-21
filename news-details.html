@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новость - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/maxresdefault.png">
+    <style>
+        .news-detail {
+            background-color: #1a2332;
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-header {
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .news-date {
+            color: #8a8a8a;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            color: #ff9900;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 535px;
+            background-color: #2a3a50;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #8a8a8a;
+        }
+        
+        .news-content {
+            line-height: 1.8;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .news-content p {
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff9900;
+            color: #0a0f1e;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid #ff9900;
+        }
+        
+        .back-btn:hover {
+            background-color: transparent;
+            color: #ff9900;
+        }
+        .attention{
+            width: 1080px;
+            height: 80px;
+            background-color: #2a3a50;
+            border-radius: 6px;
+            margin: 30px 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #8a8a8a;
+            -webkit-text-fill-color: aliceblue;
+        }
+        .nametech{
+            width: 1080px;
+            height: 40px;
+            background-color: #3b4c63;
+            border-radius: 6px;
+            margin: 30px 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #8a8a8a;
+            -webkit-text-fill-color: aliceblue;
+            margin-top: 5px;
+        }
+        .techphoto{
+            width: 400px;
+            height: 250px;
+        }
+        .videlenie{
+             color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .namemap{
+            width: 525px;
+            height: 40px;
+            background-color: #3b4c63;
+            border-radius: 6px;
+            margin: 30px 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #8a8a8a;
+            -webkit-text-fill-color: aliceblue;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/maxresdefault.png" class="logowt"></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="technique.html">Техника</a></li>
+                        <li><a href="nations.html">Нации</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li><a href="encyclopedia.html">Энциклопедия</a></li>
+                        <li><a href="https://warthunder.com/ru">Офф сайт</a></li>
+                        <li><a href="about.html">О игре</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 id="news-main-title">НОВОСТИ</h2>
+                <p id="news-subtitle">Актуальные события и обновления</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="news-detail">
+                <div id="news-content">
+                    <!-- Сюда загрузится контент новости -->
+                </div>
+                <a href="index.html" class="back-btn">← Назад к новостям</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // База данных новостей
+        const newsDatabase = {
+            '1': {
+                title: 'Встречайте крупное обновление «Остриё копья»!',
+                date: '11 мая 2025',
+                image: '🔥',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">14 ноября 2025</div>
+                        <h1 class="news-title">Встречайте «Остриё копья» — четвёртое крупное обновление War Thunder 2025 года!</h1>
+                    </div>
+                    
+                    <div class="news-image"><img src="image/940x530_news_spearhead_4ca11efdb742381df25722afc393ee23.jpg" class-"newsphoto"></div>
+                    
+                    <div class="news-content">
+                        <p>«Остриё копья» готово предложить множество новой техники для разных стилей игры. Тут и шустрый британский истребитель Hawk 200, и голландский Fokker D.XXIII (23) для любителей Второй мировой. Франция получает современный лёгкий танк EBRC Jaguar, а Великобритания приветствует Chieftain 900 с более мощным двигателем. Список полковой техники США пополняет уникальный AH-56 Cheyenne, в то время как флоты нескольких стран расширятся с прибытием могучих кораблей с крупнокалиберными орудиями. И, наконец, «Сталинград» и «Карпаты» внешне преобразились, сохранив привычный ландшафт!</p>
+                        
+                        <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 45px;">Бронетехника: французская кошка, классика Второй мировой и первая полковая техника Италии!</h3>
+                        <p>«Остриё копья» представляет лёгкий танк, прямо сейчас находящийся на службе Франции, — EBRC Jaguar. Эта кошка может наброситься на врагов и уничтожить их 40-мм пушкой и тандемными ПТУРами!
+                            </p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                            <img src="image/ebrcjaguar.jpg" class="newsphoto" alt="ebrcjaguar">
+                            <p class="nametech"><strong>EBRC Jaguar</strong></p>
+                        </div>
+                        <p>В линейку Италии прибыла первая полковая техника — C13/TUA с ПТУР I-TOW. А любителей китайских лёгких танков порадует мобильный CM34, вооружённый 30-мм пушкой Bushmaster с бронебойным оперённым подкалиберным снарядом с отделяющимся поддоном!</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 2; min-width: 200px; margin: 8px;">
+                                <img src="image/c13tua.jpg" class="techphoto" alt="C13/TUA">
+                                <p><strong>C13/TUA</strong>(полковая техника)</p>
+                            </div>
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                                <img src="image/cm34.jpg" class="techphoto" alt="CM34">
+                                <p><strong>CM34</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Линейка британских танков Chieftain пополнилась новым другом — Chieftain 900! Это фактически Chieftain Mk 5 с двигателем на 900 л.с., лазерным дальномером и металлической облицовкой спереди — отличное дополнение к предыдущим танкам Chieftain.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                            <img src="image/chieftain900.jpg" class="newsphoto" alt="Chieftain 900">
+                            <p class="nametech"><strong>Chieftain 900</strong></p>
+                        </div>
+                    </div>
+                    <p>Модель классического Tiger II была обновлена — теперь она выглядит куда более детализировано! А линейку советской бронетехники IV ранга пополнил Т-34-85 (СТП) с уникальной для «тридцатьчетвёрок» особенностью — стабилизатором!</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 2; min-width: 200px; margin: 8px;">
+                            <img src="image/tiger2.jpg" class="techphoto" alt="C13/TUA">
+                            <p><strong>Tiger II</strong> (обновление модели)</p>
+                        </div>
+                        <div style="flex: 2; min-width: 200px; margin: 10px;">
+                            <img src="image/t34stp.jpg" class="techphoto" alt="CM34">
+                            <p><strong>T-34-85</strong> (СТП)</p>
+                        </div>
+                    </div>
+                    <div class="access-grid">
+                    <div class="nation-section">
+                        <h2 class="news-title">США</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">LVT(A)(1) (M24)</div>
+                                <div class="tech-note">(премиумный)</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nation-section">
+                        <h2 class="news-title">СССР</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">БТР-82AT</div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name">T-34-85 (CTП)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Китай</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">CM34</div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name">Oplot-M (Пакистан)</div>
+                                <div class="tech-note">(полковая техника)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Италия</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">C13/TUA</div>
+                                <div class="tech-note">(полковая техника)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Франция</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">EBRC Jaguar</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Израиль</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">Bardelas/60mm HVMS</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Великобритания</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">Chieftain 900</div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="videlenie">
+                <p><strong>Новая модель:</strong></p>
+                </div>
+                <ul>
+                    <li><strong>Tiger II</strong> - полностью обновлена модель.</li>
+                    <li><strong>Tiger II (Sla. 16)</strong> - использована обновлённая модель серийного Tiger II, в дальнейшем для соответствия используемому двигателю будет доработана крыша МТО.</li>    
+                </ul>
+                <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 45px;">Самолёты: хищная птица, голладнский Fokker, премиумные наборы и бомбардировочный Mosquito!</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/samoleti.jpg" class="newsphoto" alt="ФОТО">
+                    </div>
+                </div>
+                <p>Встречайте группу из британских Hawk 200 и 200 RDA — быстрых, манёвренных и отлично вооружённых: на выбор 1000-фунтовые бомбы, НАР, УРВП и УРВВ AIM-9L, а также новинка в игре — ракеты Sea Eagle, способные нанести колоссальный урон вражеским кораблям! А Hawk 200 RDA также может запускать ракеты Skyflash.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/hawk200.jpg" class="newsphoto" alt="Hawk 200">
+                        <p class="nametech"><strong>Hawk 200</strong></p>
+                    </div>
+                </div>
+                <p>Советский авиапарк пополнился венесуэльским Су-30МК2 AMV, доступным в составе премиумного набора. Он может похвастаться отличными ЛТХ, нашлемной системой целеуказания и индикации и широким арсеналом продвинутого вооружения — отличный выбор для тех, кто играет на топовых самолётах и хочет быстро продвинуться по дереву развития советской авиации!</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/su30mk2.jpg" class="newsphoto" alt="Су-30МК2 AMV">
+                        <p class="nametech"><strong>Су-30МК2 AMV</strong> (в составе набора)</p>
+                    </div>
+                </div>
+                <p>Авиапарк Китая пополнился исследуемым JH-7 и JH-7A Prototype в составе премиумного набора. У обоих прекрасный ассортимент вооружения и контрмер; JH-7 доступны противокорабельные ракеты, а JH-7A Prototype — управляемое штурмовое вооружение и до 4 продвинутых УРВВ.</p>
+                <br>
+                <p>Также в обновлении «Остриё копья» появится ещё один самолёт Нидерландов — Fokker D.XXIII (23). У этого самолёта времён Второй мировой два двигателя и два пропеллера — толкающий и тянущий. Вооружён он 13,2-мм пулемётами — отличный уникальный самолёт, способный принести немало воздушных побед!</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                    <div style="flex: 2; min-width: 200px; margin: 8px;">
+                        <img src="image/jh-7.jpg" class="techphoto" alt="JH-7">
+                        <p><strong>JH-7</strong>(полковая техника)</p>
+                    </div>
+                    <div style="flex: 2; min-width: 200px; margin: 10px;">
+                        <img src="image/fokkerd23.jpg" class="techphoto" alt="Fokker D.XXIII (23) (Нидерланды)">
+                        <p><strong>Fokker D.XXIII (23) (Нидерланды)</strong></p>
+                    </div>
+                </div>
+                <p>Британия получила в качестве полковой техники бомбардировочную версию классического «Москита». Он лишён курсового или защитного вооружения, так что нужно быстро залететь, сбросить «подарочки» с подвесов — и быстро смотаться. Этот самолёт имеет доступ к внушительной бомбе-«печеньке» (английское название 4000-фн бомбы — Cookie), так что одним точным попаданием вы можете уничтожить многих противников сразу!</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/mosquito.jpg" class="newsphoto" alt="Mosquito B.Mk.XVI">
+                        <p class="nametech"><strong>Mosquito B.Mk.XVI</strong> (полковая техника) (в составе набора)</p>
+                    </div>
+                </div>
+                <div class="access-grid">
+                    <div class="nation-section">
+                        <h2 class="news-title">США</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">F-15C Golden Eagle</div>
+                                <div class="tech-note">(премиумный)</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nation-section">
+                        <h2 class="news-title">СССР</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Су-30МК2 AMV</strong>(в составе набора)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Германия</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Tornado IDS SLE</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Великобритания</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Hawk 200</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Hawk 200 RDA</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Mosquito B.Mk.XVI</strong></div>
+                                <div class="tech-note">(полковая техника)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Франция</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name">Fokker D.XXIII (23) (Нидерланды)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Израиль</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>M.D.450B (29)</strong>(премиумный)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Италия</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>MB-326K</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nation-section">
+                        <h2 class="news-title">Швеция</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>F-16AM (Норвегия)</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nation-section">
+                        <h2 class="news-title">Китай</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>JH-7A Prototype (в составе набора)</strong></div>
+                                <div class="tech-note">(в составе набора)</div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>JH-7</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 45px;">Вертолёты: AH-56 Cheyenne — первый винтокрыл War Thunder!</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/vertoleti.jpg" class="newsphoto" alt="ФОТО">
+                    </div>
+                </div>
+                <p>С выходом обновления «Остриё копья» в War Thunder появится первый винтокрыл — AH-56 Cheyenne (в качестве полковой техники)! Это особенная машина с крыльями, как у самолёта, и толкающим винтом сзади, повышающим её ЛТХ. AH-56 Cheyenne вооружён 30-мм пушкой, может запускать ракеты Mighty Mouse и TOW, а также на него можно установить гранатомёт M129 и 7,62-мм пулемёт (последние два взаимозаменяемы).</p>
+                <p>Линейка британских танков Chieftain пополнилась новым другом — Chieftain 900! Это фактически Chieftain Mk 5 с двигателем на 900 л.с., лазерным дальномером и металлической облицовкой спереди — отличное дополнение к предыдущим танкам Chieftain.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                            <img src="image/ah-56a.jpg" class="newsphoto" alt="AH-56A (полковая техника)">
+                            <p class="nametech"><strong>AH-56A</strong> (полковая техника)</p>
+                        </div>
+                    </div>
+                    <div class="access-grid">
+                    <div class="nation-section">
+                        <h2 class="news-title">США</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>AH-56A</strong></div>
+                                <div class="tech-note"> (полковая техника)</div>
+                            </li>
+                        </ul>
+                    </div>
+        
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Япония</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>AH-64E (Индонезия)</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Китай</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>AH-64E</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Великобритания</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>AH Mk.2 Apache</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Франция</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>AH-64E (Нидерланды)</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 45px;">Флот: супердредноут IJN Nagato!</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                    </div>
+                </div>
+                <p>Новое крупное обновление добавит в игру множество кораблей, в числе которых USS Oregon City, SMS König, HMS Centurion, RN Italia, Clemenceau и премиумный IJN Nagato в составе набора! Все они готовы задать жару своими крупнокалиберными орудиями.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                            <img src="image/flot.jpg" class="newsphoto" alt="AH-56A (полковая техника)">
+                            <p class="nametech"><strong>IJN Nagato</strong> (в составе набора)</p>
+                        </div>
+                    </div>
+                 <div class="access-grid">
+                    <div class="nation-section">
+                        <h2 class="news-title">США</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>USS Oregon City</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>PT-262 (премиумный)</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>PGM-9</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nation-section">
+                        <h2 class="news-title">Германия</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>SMS König</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Великобритания</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>HMS Centurion</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Япония</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>IJN Nagato</strong> (в составе набора)</div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>IJN Musashi</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Kari</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">СССР</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Ереван</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Италия</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>RN Italia</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nation-section">
+                        <h2 class="news-title">Франция</h2>
+                        <ul class="tech-list">
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Le Brestois</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Clemenceau</strong></div>
+                            </li>
+                            <li class="tech-item">
+                                <div class="tech-name"><strong>Commandant Dominé</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 45px;">Локации и миссии: улучшения графики Сталинграда и Карпат!</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                    </div>
+                </div>
+                <p>Мы продолжаем традицию обновлять старые карты для наземных боёв. «Сталинград» получил новые текстуры всех моделей и новые детали окружения, такие как лёд, снег и следы танковых гусениц, а «Карпаты» были полностью переработаны. Ландшафт этих классических локаций остался прежним, так что вы будете чувствовать себя тут как дома.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/stalingrad.jpg" class="mapicon" alt="Сталинград">
+                        <p class="namemap"><strong>Сталинград</strong></p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; margin: 10px;">
+                        <img src="image/karpati.jpg" class="mapicon" alt="Карпаты">
+                        <p class="namemap"><strong>Карпаты</strong></p>
+                    </div>
+                </div>
+                <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 40px;">Система борьбы за живучесть</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                    </div>
+                </div>
+                <p>Мы добавили новую механику борьбы за живучесть кораблям большого и малого флота! Она включает в себя наборы действий, которые ранее надо было активировать вручную: ремонт, тушение пожара и откачку воды. После получения урона все три эти процесса начнутся автоматически, а приоритет будет отдан выбранному вами действию. Узнайте об этом больше из нашего «Дневника разработки».</p>
+                <p>Новая механика включена по умолчанию; вместо неё можно использовать старую механику, выбрав её в меню <strong>«Настройки > Корабельные боевые настройки».</strong>
+                 <h3 style="color: #ff9900; margin: 25px 0 15px 0; font-size: 40px;">Бесплатные универсальные дублёры каждый день</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; margin: 10px;">
+                    </div>
+                </div>
+                <p>Теперь вы каждый день получаете по пять универсальных дублёров, позволяющих вам повторно возродиться на любой технике в любом режиме. Они не копятся, так что используйте их в течение дня, и не показываются в инвентаре, а применяются прямо из боёв. Как только вы используете все пять, дождитесь 3:00 МСК, и они снова восполнятся!</p>
+            `
+           },
+            '2': {
+                title: '40 авторских камуфляжей в трофее «Остриё копья»',
+                date: '13 ноября 2025',
+                image: '🏆',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">13 ноября 2025</div>
+                        <h1 class="news-title">40 авторских камуфляжей в трофее «Остриё копья»</h1>
+                    </div>
+                    
+                    <div class="news-image"><img src="image/t51news.jpg" class="newsphoto"></div>
+                    
+                    <div class="news-content">
+                        <p>Недавно увидело свет крупное обновление «Остриё копья», а значит пришла пора нового трофея с работами авторов портала Live.WT. Из 40 камуфляжей 12 применимы к технике обновления или недавних событий, а ещё 5 по нашей ноябрьской традиции — особо популярные у игроков камуфляжи из старых трофеев. В целом здесь собрано больше скинов для машин средних и высоких рангов, среди типов техники преобладает наземная, а из наций более широко, нежели обычно, представлены Китай и Франция. Помимо камуфляжей, вы можете также получить уникальную декаль и редкую технику — и всё это в виде купонов.</p>
+                        
+                        <h3 style="color: #ff9900; margin: 25px 0 15px 0;">Содержимое трофея «Остриё копья»</h3>
+                       
+                        
+                        <p>Для участия необходимо собрать команду из 5 игроков и зарегистрироваться на официальном сайте турнира.</p>
+                    </div>
+                `
+            },
+            '3': {
+                title: 'Получите R400 в событии «Быстрый и опасный»',
+                date: '14 ноября 2025',
+                image: '🎯',
+                content: `
+                    <div class="news-header">
+                        <div class="news-date">14 ноября 2025</div>
+                        <h1 class="news-title">Скорость и боевая мощь — ключевые характеристики многих машин в War Thunder. Экспериментальный лёгкий танк R400, созданный в Германии в 1986 году, — одна из них. Получите его, а также тематические немецкие декали и декоратор в нашем новом танковом событии «Быстрый и опасный»!</h1>
+                    </div>
+                    
+                    <div class="news-image"><img src="image/1920x1080_event_r400_logo_7c72a121c2bfec52bb3104e388474806.jpg" class="newsphoto"></div>
+                    
+                    <div class="news-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                            <img src="image/r400.jpg" class="newsphoto" alt="R400">
+                            <p class="nametech">R400 – акционный лёгкий танк Германии VI ранга</p>
+                        </div>
+                    </div>
+                        <p>R400 — экспериментальная боевая бронированная машина, выполненная по колёсной схеме 6х6. Кроме выдающейся скорости, на уровне лучших образцов бронетехники в War Thunder, R400 отличается высокой огневой мощью. Основным вооружением R400 станет проверенная в сотнях тысяч игровых сражений 105-мм пушка семейства L7, точная и скорострельная, а система управления огнём включает стабилизатор, лазерный дальномер и тепловизор. В боеукладках машины вы найдёте кумулятивные, бронебойно-фугасные («хэши») и два вида оперённых бронебойных снарядов, в том числе отличный DM33 с пробитием более 400 мм бронестали. R400 отлично покажет себя как в городских боях, где важны скорость реакции и хорошие параметры пробития брони, так и в роли разведчика-снайпера благодаря своей скорости, тепловизору и хорошей настильности орудия.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; text-align: center; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 200px; margin: 10px;">
+                                    <img src="image/decalr400.png" class="decal" alt="Шеврон R400">
+                                    <p><strong>Декаль «Шеврон «R400»</strong></p>
+                                </div>
+                                <div style="flex: 1; min-width: 200px; margin: 10px;">
+                                    <img src="image/decal2r400.png" class="decal" alt="Эмблема">
+                                    <p><strong>Декаль «Эмблема панцерьетерей Бундесвера»</strong></p>
+                                </div>
+                                <div style="flex: 1; min-width: 200px; margin: 10px;">
+                                    <img src="image/decal3r400.png" class="decal" alt="Винтовка">
+                                    <p><strong>Декоратор «Экспериментальная штурмовая винтовка (Германия)»</strong></p>
+                                </div>
+                            </div>
+                        <p>Также в числе призов события — трофей, в котором можно найти:
+                        <ul>
+                            <li>50 000 — 100 000 Серебряных львов</li>
+                            <li>Усилители СЛ и ОИ</li>
+                            <li>Случайные пари и приказы</li>
+                            <li>Универсальные дублёры (1-3 шт.)</li>
+                            <li>Случайный камуфляж на приобретённую технику любого типа</li>
+                            <li>1 день премиум-аккаунта</li>
+                        </ul>
+                        <h2>Как получить призы</h2>
+                        <p>
+                            "Каждый этап открывается за"
+                            <strong>35 000 очков миссии</strong>
+                            " и приносит новую награду."
+                        </p>
+                        <p>
+                            Зарабатывать очки миссии можно в наземных сражениях от III ранга в Аркадном, Реалистичном и Симуляторном режимах. Количество очков миссии для выполнения задания зависит от режима игры и максимального ранга техники, использованной в бою. Множитель заработка очков указан в описании задания.
+Зарабатывать очки можно и на наградной технике событий I-II ранга. Такая техника в карточке имеет название события, в котором была получена.
+                        </p>
+                        <h2>
+                            Награды выдаются за определённое количество пройденных этапов
+                        </h2>
+                        <ul>
+                            <li><strong>За 1 этап:<strong> трофей со случайной наградой</strong></li>
+                            <li><strong>За 2 этапа:<strong> одна из призовых декалей</strong></li>
+                            <li><strong>За 3 этапа:<strong> трофей со случайной наградой</strong></li>
+                            <li><strong>За 4 этапа:<strong> одна из призовых декалей</strong></li>
+                            <li><strong>За 5 этапов:<strong> трофей со случайной наградой</strong></li>
+                            <li><strong>За 6 этапов:<strong> декоратор «Экспериментальная штурмовая винтовка (Германия)»</strong></li>
+                            <li><strong>За 7 этапов:<strong> неторгуемый купон на R400</strong></li>
+                        </ul>
+                        <h2>
+                            Улучшение купона
+                        </h2>
+                        <p>При прохождении 7 этапов вы получаете неторгуемый купон на технику, использовав который, вы сразу получите указанную технику на свой аккаунт. Если вы не хотите использовать технику, а планируете продать купон на бирже, вам нужен предмет «Улучшение купона».<br>После получения «Улучшения купона» Вы можете конвертировать неторгуемый купон на технику в торгуемый и продать его на бирже. Торгуемый купон станет доступен для продажи через 6 суток с момента его создания.</p>
+                        <p>
+                            Предмет «Улучшение купона» действителен до 14:00 МСК 8 декабря. До этого времени вы можете использовать его по прямому назначению или обменять на Военные облигации, иначе он пропадёт из вашего инвентаря.<br>Предмет «Улучшение купона» действителен до 14:00 МСК 8 декабря. До этого времени вы можете использовать его по прямому назначению или обменять на Военные облигации, иначе он пропадёт из вашего инвентаря.
+                        </p>
+                        <div class = "attention">
+                            <p><strong>Предмет «Улучшение купона» зарабатывается параллельно этапам на всём протяжении события с 19 ноября (14:00 МСК) по 3 декабря (14:00 МСК) за 600 000 очков миссии.</strong></p>
+                        </div>
+                        <p>
+                            Отслеживать прогресс выполнения этапов и получения «Улучшение купона» можно, кликнув на «Никнейм → Достижения → Быстрый и опасный». Если вы не успели закончить этап вовремя — до <strong>8 декабря</strong> в окне достижений вы сможете за Золотые орлы приобрести прохождение этапов и получить соответствующие призы.
+                        </p>
+                    </div>
+                `
+            }
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            
+            if (newsId && newsDatabase[newsId]) {
+                const news = newsDatabase[newsId];
+                document.getElementById('news-content').innerHTML = news.content;
+                document.getElementById('news-main-title').textContent = news.title;
+            } else {
+                document.getElementById('news-content').innerHTML = `
+                    <div class="news-header">
+                        <h1 class="news-title">Новость не найдена</h1>
+                    </div>
+                    <p>Запрошенная новость не существует или была удалена.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

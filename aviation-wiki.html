@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авиация - War Thunder Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/maxresdefault.png">
+    <style>
+        .wiki-container {
+            background-color: #1a2332;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nation-section {
+            margin-bottom: 40px;
+            border: 1px solid #2a3a50;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .nation-header {
+            background: linear-gradient(135deg, #2a3a50, #1a2a3a);
+            padding: 20px;
+            border-bottom: 2px solid #ff9900;
+        }
+        
+        .nation-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ff9900;
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .nation-flag {
+            font-size: 32px;
+        }
+        
+        .era-tabs {
+            display: flex;
+            background-color: #2a3a50;
+            border-bottom: 1px solid #3a4a60;
+            flex-wrap: wrap;
+        }
+        
+        .era-tab {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-weight: bold;
+        }
+        
+        .era-tab:hover {
+            background-color: #3a4a60;
+        }
+        
+        .era-tab.active {
+            background-color: #3a4a60;
+            border-bottom-color: #ff9900;
+            color: #ff9900;
+        }
+        
+        .era-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .era-content.active {
+            display: block;
+        }
+        
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .vehicle-card {
+            background-color: #2a3a50;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-3px);
+            border-color: #ff9900;
+            background-color: #334663;
+        }
+        
+        .vehicle-image {
+            width: 100%;
+            height: 80px;
+            background-color: #3a4a60;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #8a8a8a;
+        }
+        
+        .vehicle-name {
+            color: #ff9900;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .vehicle-br {
+            color: #e0e0e0;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .vehicle-type {
+            color: #8a8a8a;
+            font-size: 11px;
+        }
+        
+        .search-section {
+            background-color: #2a3a50;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 15px;
+            background-color: #1a2332;
+            border: 1px solid #ff9900;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .search-box::placeholder {
+            color: #8a8a8a;
+        }
+        
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .category-filter {
+            background-color: #1a2332;
+            border: 1px solid #ff9900;
+            color: #e0e0e0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .category-filter.active {
+            background-color: #ff9900;
+            color: #0a0f1e;
+        }
+        
+        .category-filter:hover {
+            background-color: #ff9900;
+            color: #0a0f1e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/maxresdefault.png" class="logowt"></div>
+                    <h1>WIKI</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="aviation-wiki.html" style="background-color: #ff9900; color: #0a0f1e;">Авиация</a></li>
+                        <li><a href="tanks-wiki.html">Танки</a></li>
+                        <li><a href="fleet-wiki.html">Флот</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="aviawiki">
+        <div class="container">
+            <div class="hero-content">
+                <h2>ЭНЦИКЛОПЕДИЯ АВИАЦИИ</h2>
+                <p>Полный список всех самолетов и вертолетов в War Thunder</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="search-section">
+                <input type="text" class="search-box" placeholder="Поиск самолета..." id="searchInput">
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">Все</button>
+                    <button class="category-filter" data-category="fighter">Истребители</button>
+                    <button class="category-filter" data-category="bomber">Бомбардировщики</button>
+                    <button class="category-filter" data-category="attack">Штурмовики</button>
+                    <button class="category-filter" data-category="helicopter">Вертолеты</button>
+                </div>
+            </div>
+
+            <div class="wiki-container">
+                <!-- США -->
+              <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_the_United_States_(1912-1959).svg.png" class="flag"></span>
+                            США
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="usa-era5">V ранг</button>
+                        <button class="era-tab" data-era="usa-era6">VI ранг</button>
+                        <button class="era-tab" data-era="usa-era7">VII ранг</button>
+                        <button class="era-tab" data-era="usa-era8">VIII ранг</button>
+                    </div>
+                    <div class="era-content"id="usa-era6">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image">F-104</div>
+                                <div class="vehicle-name">F-104</div>
+                                <div class="vehicle-br">БР: 9.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="era-content"id="usa-era7">
+                        <div class="vehicle-grid">
+                        <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f5e.png" class="f16"></div>
+                                <div class="vehicle-name">F-5E</div>
+                                <div class="vehicle-br">БР: 11.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4s.png" class="f16"></div>
+                                <div class="vehicle-name">F-4C Phantom II</div>
+                                <div class="vehicle-br">БР: 10.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4s.png" class="f16"></div>
+                                <div class="vehicle-name">F-4E Phantom II</div>
+                                <div class="vehicle-br">БР: 11.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                         <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4s.png" class="f16"></div>
+                                <div class="vehicle-name">F-4S Phantom II</div>
+                                <div class="vehicle-br">БР: 12.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f8.png" class="f16"></div>
+                                <div class="vehicle-name">F-8E</div>
+                                <div class="vehicle-br">БР: 10.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4s.png" class="f16"></div>
+                                <div class="vehicle-name">F-4J Phantom II</div>
+                                <div class="vehicle-br">БР: 12.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/a10.png" class="f16">></div>
+                                <div class="vehicle-name">A-10A Late</div>
+                                <div class="vehicle-br">БР: 10.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image">A-7D</div>
+                                <div class="vehicle-name">A-7D</div>
+                                <div class="vehicle-br">БР: 10.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image">A-7E</div>
+                                <div class="vehicle-name">A-7E</div>
+                                <div class="vehicle-br">БР: 10.3</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image">A-10C</div>
+                                <div class="vehicle-name">A-10C</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                             <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image">F-105D</div>
+                                <div class="vehicle-name">F-105D</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                             <div class="vehicle-card" data-type="bomber">
+                                <div class="vehicle-image">F-111A</div>
+                                <div class="vehicle-name">F-111A</div>
+                                <div class="vehicle-br">БР: 10.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                             <div class="vehicle-card" data-type="bomber">
+                                <div class="vehicle-image">F-111F</div>
+                                <div class="vehicle-name">F-111F</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Ударный самолет</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="era-content active" id="usa-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f-16a.webp" class="f16"></div>
+                                <div class="vehicle-name">F-16A Fighting Falcon</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f-16a-adf.jpg" class="f16adf"></div>
+                                <div class="vehicle-name">F-16A Block 15 ADF Fighting Falcon</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f16c.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-16C Block 50Fighting Falcon</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                             <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f15a.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-15A Eagle</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                              <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f15c.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-15C MSIP 2</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                              <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f15cge.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-15C Golden Eagle</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f18a.jpg" class="f16"></div>
+                                <div class="vehicle-name">F/A-18A Hornet</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f14a.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-14A Early</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f14b.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-14B</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f18c.jpg" class="f16"></div>
+                                <div class="vehicle-name">F/A-18C(late) Hornet</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f18esuperhornet.jpeg" class="f16"></div>
+                                <div class="vehicle-name">F/A-18E Super Hornet</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/f15e.webp" class="f16"></div>
+                                <div class="vehicle-name">F-15E Strike Eagle</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Ударный</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СССР -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Russian_Federation_(2022_proposal).png" class="flag"></span>
+                            СССР
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="ussr-era5">V ранг</button>
+                        <button class="era-tab" data-era="ussr-era6">VI ранг</button>
+                        <button class="era-tab" data-era="ussr-era7">VII ранг</button>
+                        <button class="era-tab" data-era="ussr-era8">VIII ранг</button>
+                    </div>
+                    <div class="era-content" id="ussr-era7">
+                        <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/su24m.png" class="f16"></div>
+                                <div class="vehicle-name">Су-24М</div>
+                                <div class="vehicle-br">БР: 11.3</div>
+                                <div class="vehicle-type">Ударный Самолет</div>
+                            </div>
+                    </div>
+                    <div class="era-content active" id="ussr-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/yak141.jpg" class="pantsir"></div>
+                                <div class="vehicle-name">Як-141</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29.jpg" class="f16"></div>
+                                <div class="vehicle-name">Миг-29</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29smt.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Миг-29СМТ</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/su27.jpg" class="f16"></div>
+                                <div class="vehicle-name">Су-27</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/su27sm.jpg" class="f16"></div>
+                                <div class="vehicle-name">Су-27см</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/su30sm.jpg" class="f16"></div>
+                                <div class="vehicle-name">Су-30СМ</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/су30см2.jpg" class="f16"></div>
+                                <div class="vehicle-name">Су-30СМ2</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"> <img src="image/su25sm3.jpeg" class="f16"></div>
+                                <div class="vehicle-name">Су-25СМ3</div>
+                                <Div class="vehicle-br">БР: 11.7</Div>
+                                <Div class="vehicle-type">Штурмовик</Div>
+                            </div>
+                                <div class="vehicle-card" data-type="attack">
+                                    <div class="vehicle-image"><img src="image/su34.jpg" class="f16"></div>
+                                    <div class="vehicle-name">Су-34</div>
+                                    <div class="vehicle-br">БР: 13.7</div>
+                                    <div class="vehicle-type">Штурмовик</div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Германия -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Germany.svg.png" class="flag"></span>
+                            Германия
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="germany-era5">V ранг</button>
+                        <button class="era-tab" data-era="germany-era6">VI ранг</button>
+                        <button class="era-tab" data-era="germany-era7">VII ранг</button>
+                        <button class="era-tab" data-era="germany-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="germany-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4fphantom2.jpg" class="f16"></div>
+                                <div class="vehicle-name">F-4F KWS LV</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/ef2000german.jpg" class="f16"></div>
+                                <div class="vehicle-name">Eurofighter Typhoon</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/ef2000(AESA).webp" class="f16"></div>
+                                <div class="vehicle-name">Eurofighter Typhoon (AESA)</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29german.jpg" class="f16"></div>
+                                <div class="vehicle-name">Mig-29</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29g.webp" class="f16"></div>
+                                <div class="vehicle-name">Mig-29g</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/TORNADO IDS ASSTA1.jpg" class="f16"></div>
+                                <div class="vehicle-name">Tornado IDS ASSTA1</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Ударный Самолет</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/TORNADO IDS SLE.jpg" class="f16"></div>
+                                <div class="vehicle-name">Tornado IDS SLE</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Ударный Самолет</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/FA 18C LATEgerman.webp" class="f16"></div>
+                                <div class="vehicle-name">F/A-18C Late</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Великобритания -->
+                <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Great_Britain_4_by_3.png" class="flag"></span>
+                            Великобритания
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="uk-era5">V ранг</button>
+                        <button class="era-tab" data-era="uk-era6">VI ранг</button>
+                        <button class="era-tab" data-era="uk-era7">VII ранг</button>
+                        <button class="era-tab" data-era="uk-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="uk-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/jas39cbrit.jfif" class="mig29"></div>
+                                <div class="vehicle-name">JAS39C</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Typhoon FGR.4.jpg_fit=1" class="pantsir"></div>
+                                <div class="vehicle-name">Typhoon FGR.4</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/typhoon fgr4(AESA)brit.webp" class="f16"></div>
+                                <div class="vehicle-name">Typhoon FGR.4 (AESA)</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/TORNADO F.3.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Tornado F.3</div>
+                                <div class="vehicle-br">БР: 12.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/TORNADO F.3 late.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Tornado F.3 Late</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/fa18abrit.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F/A-18A</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Sea Harrier FA 2.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Sea Harrier FA 2</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/AFA-18A.jfif" class="mig29"></div>
+                                <div class="vehicle-name">AF/A-18A Late</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Harrier GR.7.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Harrier GR.7</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Штурмовик</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Tornado GR.1.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Tornado GR.1</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Штурмовик</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Tornado GR.4.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Tornado GR.4</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Штурмовик</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Япония -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Japan_-_Rounded_Rectangle.svg.png" class="flag"></span>
+                            Япония
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="japan-era5">V ранг</button>
+                        <button class="era-tab" data-era="japan-era6">VI ранг</button>
+                        <button class="era-tab" data-era="japan-era7">VII ранг</button>
+                        <button class="era-tab" data-era="japan-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="japan-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f4ekai.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-4EJ Kai Phantom 2</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f15j.webp" class="mig29"></div>
+                                <div class="vehicle-name">F-15J</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f15jm.webp" class="mig29"></div>
+                                <div class="vehicle-name">F-15J(M)</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f16aj.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16AJ</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f-2a.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-2A</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f5thtcu.png" class="mig29"></div>
+                                <div class="vehicle-name">F-5TH TCU</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/f16aocu.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16A OCU</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/jas39cthailand.jpg" class="mig29"></div>
+                                <div class="vehicle-name">JAS-39C</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29n.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Mig-29N</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/fa18dlate.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F/A-18D Late</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/su30mkm.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Su-30MKM</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Китай -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_the_People's_Republic_of_China.svg.png" class="flag"></span>
+                            Китай
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="china-era5">V ранг</button>
+                        <button class="era-tab" data-era="china-era6">VI ранг</button>
+                        <button class="era-tab" data-era="china-era7">VII ранг</button>
+                        <button class="era-tab" data-era="china-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="china-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16A MLU.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16A MLU</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/J-10A.jpg" class="mig29"></div>
+                                <div class="vehicle-name">J-10A</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Mirage 2000-5Ei.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 2000-5EI</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/J-8F.jpg" class="mig29"></div>
+                                <div class="vehicle-name">J-8F</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/J-11.jpg" class="mig29"></div>
+                                <div class="vehicle-name">J-11</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/J-11A.jpg" class="mig29"></div>
+                                <div class="vehicle-name">J-11A</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/J-11B.jpg" class="mig29"></div>
+                                <div class="vehicle-name">J-11B</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/JH7A.jpg" class="mig29"></div>
+                                <div class="vehicle-name">JH-7A</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Ударный Самолет</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Италия -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Italy.svg.png" class="flag"></span>
+                            Италия
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="italy-era5">V ранг</button>
+                        <button class="era-tab" data-era="italy-era6">VI ранг</button>
+                        <button class="era-tab" data-era="italy-era7">VII ранг</button>
+                        <button class="era-tab" data-era="italy-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="italy-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16A ADFitaly.png" class="mig29"></div>
+                                <div class="vehicle-name">F-16A ADF</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-2000Aitaly.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-2000A</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Tornado ADV italy.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Tornado ADV</div>
+                                <div class="vehicle-br">БР: 12.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Tornado IDS (1995) italy.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Tornado IDS (1995)</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Tornado IDS MLU (RET.8) italy.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Tornado IDS MLU (RET.8)</div>
+                                <div class="vehicle-br">БР: 11.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/AV-8B PLUS italy.jfif" class="mig29"></div>
+                                <div class="vehicle-name">AV-8B PLUS</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/mig29italy.webp" class="mig29"></div>
+                                <div class="vehicle-name">Mig-29</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/JAS39EBS HU C.jpg" class="mig29"></div>
+                                <div class="vehicle-name">JAS39EBS HU C</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Франция -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_France.svg.png" class="flag"></span>
+                            Франция
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="french-era5">V ранг</button>
+                        <button class="era-tab" data-era="french-era6">VI ранг</button>
+                        <button class="era-tab" data-era="french-era7">VII ранг</button>
+                        <button class="era-tab" data-era="french-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="french-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Mirage 2000C-S5.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 2000C-S5</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Mirage 2000-5F.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 2000-5F</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Rafale C F3.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Rafale C F3</div>
+                                <div class="vehicle-br">БР: 14.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Mirage 4000.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 4000</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Mirage 2000D-R1.png" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 2000D-R1</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/Mirage 2000D-RMV.webp" class="mig29"></div>
+                                <div class="vehicle-name">Mirage 2000D-RMV</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16Afrance.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16A</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16AMfrance.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16AM</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Швеция -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/sweden.jpg" class="flag"></span>
+                            Швеция
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="sweeden-era5">V ранг</button>
+                        <button class="era-tab" data-era="sweeden-era6">VI ранг</button>
+                        <button class="era-tab" data-era="sweeden-era7">VII ранг</button>
+                        <button class="era-tab" data-era="sweeden-era8">VIII ранг</button>
+                    </div>
+                    
+                    <div class="era-content active" id="sweeden-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/JA37D.png" class="mig29"></div>
+                                <div class="vehicle-name">JA37D</div>
+                                <div class="vehicle-br">БР: 12.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/JA37DI.jpeg" class="mig29"></div>
+                                <div class="vehicle-name">JA37DI</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/JAS39A.jpg" class="mig29"></div>
+                                <div class="vehicle-name">JAS39A Gripen</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/JAS39C.jpg" class="mig29"></div>
+                                <div class="vehicle-name">JAS39C Gripen</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16 AM sweeden.JPG" class="mig29"></div>
+                                <div class="vehicle-name">F-16 AM</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-18Csweeden.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-18C</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-18C mlu2 sweeden.jfif" class="mig29"></div>
+                                <div class="vehicle-name">F-18C MLU 2</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Израиль -->
+                    <div class="nation-section">
+                    <div class="nation-header">
+                        <h2 class="nation-title">
+                            <span class="nation-flag"><img src="image/Flag_of_Israel.svg.png" class="flag"></span>
+                            Израиль
+                        </h2>
+                    </div>
+                    
+                    <div class="era-tabs">
+                        <button class="era-tab" data-era="israel-era5">V ранг</button>
+                        <button class="era-tab" data-era="israel-era6">VI ранг</button>
+                        <button class="era-tab" data-era="israel-era7">VII ранг</button>
+                        <button class="era-tab" data-era="israel-era8">VIII ранг</button>
+                    </div>
+                    <div class="era-content active" id="israel-era8">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/netz.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Netz</div>
+                                <div class="vehicle-br">БР: 12.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16C Barak II israel.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-16C Barak II</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Kurnass 2000.webp" class="mig29"></div>
+                                <div class="vehicle-name">Kurnass 2000</div>
+                                <div class="vehicle-br">БР: 12.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Baz.jfif" class="mig29"></div>
+                                <div class="vehicle-name">Baz</div>
+                                <div class="vehicle-br">БР: 13.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/Baz Meshupar.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Baz Meshupar</div>
+                                <div class="vehicle-br">БР: 13.7</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16D Barak II.jfif" class="mig29"></div>
+                                <div class="vehicle-name">F-16D Barak II</div>
+                                <div class="vehicle-br">БР: 13.3</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="fighter">
+                                <div class="vehicle-image"><img src="image/F-16I Sufa.webp" class="mig29"></div>
+                                <div class="vehicle-name">F-16I Sufa</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Реактивный Истребитель</div>
+                            </div>
+                            <div class="vehicle-card" data-type="attack">
+                                <div class="vehicle-image"><img src="image/F-15I Ra'am.jpg" class="mig29"></div>
+                                <div class="vehicle-name">F-15I Ra'am</div>
+                                <div class="vehicle-br">БР: 14.0</div>
+                                <div class="vehicle-type">Ударный Самолет</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <script>
+        // Табы эпох
+        document.addEventListener('DOMContentLoaded', function() {
+            // Переключение эпох
+            const eraTabs = document.querySelectorAll('.era-tab');
+            eraTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const nationSection = this.closest('.nation-section');
+                    const eraId = this.getAttribute('data-era');
+                    
+                    // Деактивируем все табы в этой нации
+                    nationSection.querySelectorAll('.era-tab').forEach(t => t.classList.remove('active'));
+                    nationSection.querySelectorAll('.era-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Активируем выбранный
+                    this.classList.add('active');
+                    document.getElementById(eraId).classList.add('active');
+                });
+            });
+            
+            // Фильтрация по категориям
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Активная кнопка
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Фильтрация карточек
+                    const allCards = document.querySelectorAll('.vehicle-card');
+                    allCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-type') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Поиск
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchText = this.value.toLowerCase();
+                const allCards = document.querySelectorAll('.vehicle-card');
+                
+                allCards.forEach(card => {
+                    const vehicleName = card.querySelector('.vehicle-name').textContent.toLowerCase();
+                    if (vehicleName.includes(searchText)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Клик по карточке
+            const vehicleCards = document.querySelectorAll('.vehicle-card');
+            vehicleCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const vehicleName = this.querySelector('.vehicle-name').textContent;
+                    const vehicleId = vehicleName.toLowerCase().replace(/\s+/g, '-');
+                    window.location.href = `vehicle-details.html?vehicle=${vehicleId}`;
+                });
+            });
+        });
+    </script>
+    <nav>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="aviation-wiki.html" style="background-color: #ff9900; color: #0a0f1e;">Энциклопедия</a></li>
+        <li><a href="nations.html">Нации</a></li>
+    </ul>
+</nav>
+<script>
+    // Обработка параметра нации из URL
+    function handleNationFilter() {
+        console.log('Функция handleNationFilter запущена');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const nation = urlParams.get('nation');
+        
+        console.log('Параметр nation из URL:', nation);
+        
+        if (nation) {
+            const nationMap = {
+                'usa': 'США',
+                'germany': 'Германия',
+                'ussr': 'СССР',
+                'uk': 'Великобритания',
+                'japan': 'Япония',
+                'china': 'Китай',
+                'italy':'Италия',
+                'french':'Франция',
+                'sweeden':'Швеция',
+                'israel':'Израиль',
+
+            };
+            
+            const targetNation = nationMap[nation];
+            console.log('Ищем нацию:', targetNation);
+            
+            if (targetNation) {
+                // Ждем полной загрузки DOM
+                setTimeout(() => {
+                    console.log('Ищем секции с нацией:', targetNation);
+                    
+                    const nationSections = document.querySelectorAll('.nation-section');
+                    console.log('Найдено секций:', nationSections.length);
+                    
+                    let found = false;
+                    
+                    nationSections.forEach((section, index) => {
+                        const title = section.querySelector('.nation-title');
+                        if (title) {
+                            console.log(`Секция ${index}:`, title.textContent);
+                            
+                            // Ищем в тексте название нации
+                            if (title.textContent.includes(targetNation)) {
+                                console.log('Найдена секция! Прокручиваем...');
+                                found = true;
+                                
+                                // Прокручиваем
+                                section.scrollIntoView({ 
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                                
+                                // Подсвечиваем
+                                section.style.boxShadow = '0 0 0 3px #ff9900';
+                                section.style.transition = 'box-shadow 0.3s ease';
+                                
+                                // Меняем заголовок
+                                const heroTitle = document.querySelector('.hero h2');
+                                if (heroTitle) {
+                                    heroTitle.textContent = `АВИАЦИЯ ${targetNation.toUpperCase()}`;
+                                }
+                                
+                                // Через 3 секунды убираем подсветку
+                                setTimeout(() => {
+                                    section.style.boxShadow = 'none';
+                                }, 3000);
+                            }
+                        }
+                    });
+                    
+                    if (!found) {
+                        console.log('Секция не найдена, показываем все');
+                    }
+                }, 1000); // Увеличена задержка
+            }
+        }
+    }
+    
+    // Запускаем когда ВСЕ загрузится
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', handleNationFilter);
+    } else {
+        // Если DOM уже загружен, запускаем сразу
+        handleNationFilter();
+    }
+    
+    // Также запускаем с задержкой на всякий случай
+    setTimeout(handleNationFilter, 1500);
+    // В конец скрипта aviation-wiki.html добавьте:
+function handleCategoryFilter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    
+    console.log('Категория из URL:', category);
+    
+    if (category) {
+        const categoryMap = {
+            'fighter': 'Истребители',
+            'bomber': 'Бомбардировщики',
+            'attack': 'Штурмовики',
+            'helicopter': 'Вертолеты'
+        };
+        
+        const targetCategory = categoryMap[category];
+        
+        if (targetCategory) {
+            console.log('Ищем категорию:', targetCategory);
+            
+            // Ждем загрузки
+            setTimeout(() => {
+                // Нажимаем на соответствующую кнопку фильтра
+                const filterButtons = document.querySelectorAll('.category-filter');
+                filterButtons.forEach(button => {
+                    if (button.getAttribute('data-category') === category) {
+                        console.log('Нажата кнопка фильтра:', category);
+                        button.click(); // Автоматически нажимаем кнопку
+                        
+                        // Меняем заголовок
+                        const heroTitle = document.querySelector('.hero h2');
+                        if (heroTitle) {
+                            heroTitle.textContent = targetCategory.toUpperCase();
+                        }
+                        
+                        
+                    }
+                });
+            }, 1000);
+        }
+    }
+}
+
+// Функция сброса фильтра категории
+function resetCategoryFilter() {
+    // Нажимаем кнопку "Все"
+    const allButton = document.querySelector('.category-filter[data-category="all"]');
+    if (allButton) {
+        allButton.click();
+    }
+    
+    // Возвращаем заголовок
+    const heroTitle = document.querySelector('.hero h2');
+    if (heroTitle) {
+        heroTitle.textContent = 'ЭНЦИКЛОПЕДИЯ АВИАЦИИ';
+    }
+    
+    // Убираем кнопку
+    const backBtn = document.querySelector('.show-all-btn');
+    if (backBtn) {
+        backBtn.remove();
+    }
+    
+    // Убираем параметр из URL
+    history.replaceState({}, '', 'aviation-wiki.html');
+}
+
+// Запускаем фильтрацию по категории при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    // Сначала фильтр по нации (если есть)
+    handleNationFilter();
+    
+    // Потом фильтр по категории (если есть)
+    setTimeout(handleCategoryFilter, 1500);
+});
+</script>
+</body>
+</html>

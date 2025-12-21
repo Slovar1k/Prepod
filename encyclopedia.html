@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор энциклопедии - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/maxresdefault.png">
+    <style>
+        .encyclopedia-choice {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .choice-card {
+            background: linear-gradient(135deg, #1a2332, #2a3a50);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .choice-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff9900;
+            box-shadow: 0 15px 40px rgba(255, 153, 0, 0.2);
+        }
+        
+        .choice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9900, #ff6600);
+        }
+        
+        .choice-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .choice-card:hover .choice-icon {
+            transform: scale(1.1);
+        }
+        
+        .choice-card h3 {
+            color: #ff9900;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .choice-card p {
+            color: #b0b0b0;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .choice-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 153, 0, 0.3);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #8a8a8a;
+        }
+        
+        .choice-btn {
+            display: inline-block;
+            background: #ff9900;
+            color: #0a0f1e;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 2px solid #ff9900;
+        }
+        
+        .choice-btn:hover {
+            background: transparent;
+            color: #ff9900;
+        }
+        .choice-card.aviation {
+        background: linear-gradient(rgba(26, 35, 50, 0.5), rgba(26, 35, 50, 0.5)), url('https://cdn.kanobu.ru/articles/pics/tmp/images/2023/5/24/eb1acbef-a062-4a5a-b7d4-f65828499ade.jpg') no-repeat center center;
+        background-size: cover;
+        }
+        
+        .choice-card.tanks {
+            background: linear-gradient(rgba(26, 35, 50, 0.5), rgba(26, 35, 50, 0.5)), url('https://avatars.mds.yandex.net/get-mpic/4554655/2a0000019979bb122dc528edda9e6fe49264/orig') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .choice-card.fleet {
+            background: linear-gradient(rgba(26, 35, 50, 0.5),  rgba(26, 35, 50, 0.5)), url('https://staticfiles-ru.warthunder.com/upload/image/2017/June/09_06_screen_01_04aa4f26ebafd06373d79b37bbd6bbf8.jpg') no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/maxresdefault.png" class="logowt">
+                    <div class="logo-icon"></div>
+                </div>
+                <nav>
+                    <ul>
+                       <li><a href="index.html">Главная</a></li>
+                        <li><a href="technique.html">Техника</a></li>
+                        <li><a href="nations.html">Нации</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li><a href="encyclopedia.html">Энциклопедия</a></li>
+                        <li><a href="https://warthunder.com/ru">Офф сайт</a></li>
+                        <li><a href="about.html">О игре</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="encyclopedia-full">
+        <div class="container">
+            <div class="encyclopedia-subtitle">
+                <h2>ЭНЦИКЛОПЕДИЯ ТЕХНИКИ</h2>
+                <p>Полная информация о всех единицах техники в War Thunder</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="choice-grid">
+                <!-- Авиация -->
+                <a href="aviation-wiki.html" class="choice-card aviation">
+                    <div class="choice-icon"></div>
+                    <h3>АВИАЦИЯ</h3>
+                    <p>Самолеты и вертолеты всех эпох - от бипланов Первой мировой до реактивных истребителей современности</p>
+                    <div class="choice-stats">
+                        <div class="stat">
+                            <span class="stat-number">2500+</span>
+                            <span class="stat-label">Самолетов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Рангов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Наций</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Бронетехника -->
+                <a href="tanks-wiki.html" class="choice-card tanks">
+                    <div class="choice-icon"></div>
+                    <h3>НАЗЕМНАЯ ТЕХНИКА</h3>
+                    <p>Танки, САУ, БМП и бронемашины - от легких разведчиков до тяжелых танков прорыва</p>
+                    <div class="choice-stats">
+                        <div class="stat">
+                            <span class="stat-number">2500+</span>
+                            <span class="stat-label">Танков</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Рангов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Наций</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Флот -->
+                <a href="fleet-wiki.html" class="choice-card fleet">
+                    <div class="choice-icon"></div>
+                    <h3>ФЛОТ</h3>
+                    <p>Корабли и катера - от патрульных катеров до линкоров и авианосцев</p>
+                    <div class="choice-stats">
+                        <div class="stat">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">Кораблей</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Рангов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Наций</span>
+                        </div>
+                    </div>  
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>2025. WT справка.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

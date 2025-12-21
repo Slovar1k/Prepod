@@ -1,0 +1,706 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0f1e;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background: linear-gradient(to right, #1a2a3a, #0a1428);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo h1 {
+    font-size: 24px;
+    color: #ff9900;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ff9900;
+    color: #0a0f1e;
+}
+
+/* Герой секция */
+.hero {
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/nfirNfDXfVQ/maxresdefault.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #0a0f1e;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff9900;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #ff9900;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ff9900;
+    border: 2px solid #ff9900;
+}
+
+.btn-secondary:hover {
+    background-color: #ff9900;
+    color: #0a0f1e;
+}
+
+/* Секции */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: #ff9900;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #ff9900;
+    margin: 15px auto;
+}
+
+/* Быстрый доступ */
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.access-card {
+    background-color: #1a2332;
+    border-radius: 8px;
+    padding: 30px 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.access-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff9900;
+    background-color: #233044;
+}
+
+.access-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.access-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ff9900;
+}
+
+/* Футер */
+footer {
+    background-color: #0a1428;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ff9900;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1a2a3a;
+    color: #8a8a8a;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero h2 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.air{
+width: 200px;
+height: 150px;
+}
+.tank{
+    width: 300px;
+    height: 125px;
+}
+.water{
+    width: 200px;
+    height: 150ps;
+}
+.flag{
+    width: 150px;
+    height: 100px;
+}
+.ostrie{
+    width: 300px;
+    height: 200px;
+}
+.box{
+    width: 350px;
+    height: 300px ;
+     position: relative;
+  top:-30px;
+}
+.r400{
+    width: 325px ;
+    height: 200px;
+}
+.logowt{
+    width: 200px;
+    height: 115px;
+}
+.tank_logo{
+    width: 100px;
+    height: 50px;
+}
+.sau{
+    width: 125px;
+    height: 75px;
+      position: relative;
+  top:-10px;
+}
+.bomb{
+    width: 125px;
+    height: 75px ;
+      position: relative;
+  top:-5px;
+}
+.vert{
+    width: 150px;
+    height: 75px;
+}
+.fregat{
+    width: 150 px;
+    height: 75px;
+}
+.view-technique-btn {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #0a0f1e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff9900;
+}
+
+.view-technique-btn:hover {
+    background-color: transparent;
+    color: #ff9900;
+}
+/* Делаем карточки техники кликабельными */
+.access-card, 
+.vehicle-card, 
+.vehicle-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.access-card:hover, 
+.vehicle-card:hover, 
+.vehicle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
+}
+
+/* Ссылки в названиях техники */
+.access-card h3 a,
+.vehicle-card h3 a, 
+.vehicle-item h3 a {
+    color: #ff9900 !important;
+    text-decoration: none !important;
+}
+
+.access-card h3 a:hover,
+.vehicle-card h3 a:hover,
+.vehicle-item h3 a:hover {
+    color: #ffcc80 !important;
+    text-decoration: underline !important;
+}
+.f16{
+    width: 100px;
+    height: 75px;
+}
+.video-section {
+    margin: 30px 0;
+}
+
+.video-container {
+    background-color: #2a3a50;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ff9900;
+}
+
+.video-container iframe {
+    border-radius: 4px;
+}
+.pantsir{
+    width: 150px;
+    height: 75px;
+}
+.tankwiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/2MTQKk0dpLA/maxresdefault.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.aviawiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://i.ytimg.com/vi/fskDuy9-DpI/maxresdefault.jpg?v=68ccaf20') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.logobutton{
+    width: 50px;
+    height: 35px;
+}
+/* Стили для кликабельных карточек новостей */
+.news-card {
+    background-color: #1a2332;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 153, 0, 0.2);
+    border: 1px solid #ff9900;
+}
+
+.news-card::after {
+    content: '🔗';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 153, 0, 0.9);
+    color: #0a0f1e;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-card:hover::after {
+    opacity: 1;
+}
+.fleetwiki{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('image/fleetfon.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.f16adf{
+    width: 125px;
+    height: 74px;
+}
+.newsphoto{
+    width: 1000px;
+    height: 500px;
+}
+.decal{
+    width: 300px;
+    height: 300px;
+}
+.newsfon{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://warthunder.com/i/bg-fon/site_theme_spearhead.webp?v=76f19e70') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.nationsfon{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url(https://warthunder.com/i/bg-fon/site_theme_spearhead.webp?v=76f19e70) no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.mapicon{
+    width: 525px;
+    height: 400px;
+}
+.leo{
+    width: 200px;
+    height: 75px;
+}
+.infovehlogo{
+    width: 255px;
+    height: 175px;
+}
+.mig29{
+    width: 125px;
+    height: 75px;
+}
+ul {
+    margin-top: 0.3em;
+    margin-bottom: 0;
+    margin-left: 1.6em;
+    margin-right: 0;
+    -webkit-margin-start: 1.6em;
+    -webkit-margin-end: 0;
+    margin-inline-start: 1.6em;
+    margin-inline-end: 0;
+    padding: 0;
+}
+.miniflag{
+    width: 30px;
+    height: 20px;
+}
+.history-photo {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.history-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 2000px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 153, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.history-photo img:hover {
+    transform: scale(1.01);
+}
+
+.history-photo-caption {
+    color: #8a8a8a;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .history-section {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .history-photo img {
+        max-height: 300px;
+    }
+}
+.background{
+    width: 100%;
+    height: auto;
+    max-height: 2000px;
+}
+.su25{
+    width: 1050px;
+    height: 600px;
+}
+.attacker{
+    width: 95px;
+    height: 100px;
+}
+.encyclopedia{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://staticfiles.warthunder.com/upload/image/!2025/10/news/23_10_2024_ingame_discounts/940x530_ingame_discounts_0c0d8492d5396bb315af5c4328ea8f30.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.encyclopedia-full {
+    background: url('https://sun1-30.userapi.com/impf/VnOIWcEImgUdahX8O4_5vkxkOMwOFkjH-NFYJw/vDKbTa4WexE.jpg?size=1818x606&quality=95&crop=0,322,2560,853&sign=0b73d34b4609d3d92faaa28801e325c9&type=cover_group') no-repeat center center fixed;
+    background-size:cover;
+    position: relative;
+    min-height: 100vh;
+    padding: 80px 0;
+    min-height: calc(100vh - 267px);
+}
+
+.encyclopedia-full::before {
+    content: '';
+    position: absolute;
+    top: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(10, 15, 30, 0.95) 0%,
+        rgba(10, 15, 30, 0.7) 50%,
+        rgba(10, 15, 30, 0.5) 100%
+    );
+}
+
+.encyclopedia-full > .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.encyclopedia-title {
+    text-align: center;
+    margin-bottom: 100px;
+    color: #ff9900;
+    font-size: 36px;
+}
+
+.encyclopedia-subtitle {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 20px;
+    margin-bottom: 275px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    
+}
+
+.access-card.aviation {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://staticfiles-ru.warthunder.com/upload/image/!2023/12/upd/art_int/art_int/3840x2160_air_superiority_logo_7d14b56eca5c179d2df1796363539c2a.jpg') no-repeat center center;
+    background-size: 160% auto; 
+}
+
+.access-card.tanks {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://store.pixstorm.ru/img/items/45E8B779-1227-48CA-BCAA-A67DA2B5F99A_inner.jpg') no-repeat center center;
+                background-size: 160% auto; 
+}
+
+.access-card.fleet {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://staticfiles-ru.warthunder.com/upload/image/media/wallpapers/kusen_tei_13_1942_2560x1140_logo_ru_5a791f46fd876f2bcb4a6cfc7e1cf1be.jpg') no-repeat center center;
+                background-size: 160% auto; 
+}
+
+.access-card.nation {
+    background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(40, 50, 70, 0.7)), 
+                url('https://kosmokid.ru/media/zemlya%20copy.gif') no-repeat center center;
+                background-size: 160% auto;
+                background-position: 70% 30%; 
+}
+.hero-technik{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://forum-en-cdn.warthunder.com/original/3X/c/8/c8072a74cbc5f8a57bb498a5cf58faf694694edb.jpeg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-nations{
+    background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('https://staticfiles.warthunder.com/upload/image/0_2025/6_June/Sale/summersale2025_940_78d603b3e371e601f75320b3715641b3.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-nations h2{  
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.hero-nations p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.newsfon h2{
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.newsfon p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.hero-technik h2{
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+.hero-technik p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}

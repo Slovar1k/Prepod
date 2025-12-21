@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авиация - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/maxresdefault.png">
+    <style>
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .technique-card {
+            background-color: #1a2332;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff9900;
+            background-color: #233044;
+        }
+        
+        .technique-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .technique-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff9900;
+        }
+        
+        .technique-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+        
+        .technique-stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/maxresdefault.png" class="logowt"></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="aviation-list.html">Авиация</a></li>
+                        <li><a href="tanks-list.html">Танки</a></li>
+                        <li><a href="fleet-list.html">Флот</a></li>
+                        <li><a href="encyclopedia.html">Энциклопедия</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>НАЗЕМНАЯ ТЕХНИКА</h2>
+                <p>Более 1000 танков и САУ из разных стран и эпох</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Танки</h2>
+            <div class="technique-grid">
+                <div class="technique-card" onclick="window.location.href='tanks-wiki.html?category=ht'">
+                    <div class="technique-icon"><img src="image/is3siluet.png" class="attacker"></div>
+                    <h3>Тяжелый танк</h3>
+                    <p>Хорошо бронированны, медленный ход, мощная пушка</p>
+                    <div class="technique-stats">
+                        <div class="technique-stat">
+                            <span class="stat-value">400+</span>
+                            <span class="stat-label">Моделей</span>
+                        </div>
+                        <div class="technique-stat">
+                            <span class="stat-value">Резерв-9.0</span>
+                            <span class="stat-label">БР</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-card" onclick="window.location.href='tanks-wiki.html?category=mt'">
+                    <div class="technique-icon"><img src="image/i (5)-no-bg-preview (carve.photos).png" class="tank_logo"></div>
+                    <h3>Средний танк</h3>
+                    <p>Поддержка тяжей/ОБТ</p>
+                    <div class="technique-stats">
+                        <div class="technique-stat">
+                            <span class="stat-value">450+</span>
+                            <span class="stat-label">Моделей</span>
+                        </div>
+                        <div class="technique-stat">
+                            <span class="stat-value">Резерв-12.7</span>
+                            <span class="stat-label">БР</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-card" onclick="window.location.href='tanks-wiki.html?category=lt'">
+                    <div class="technique-icon"><img src="image/bmp_1.png" class="tank_logo"></div>
+                    <h3>Легкий танк/БМП</h3>
+                    <p>Слабая броня, быстрый, средняя пушка</p>
+                    <div class="technique-stats">
+                        <div class="technique-stat">
+                            <span class="stat-value">80+</span>
+                            <span class="stat-label">Моделей</span>
+                        </div>
+                        <div class="technique-stat">
+                            <span class="stat-value">Резерв-10.0</span>
+                            <span class="stat-label">БР</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-card" onclick="window.location.href='tanks-wiki.html?category=sau'">
+                    <div class="technique-icon"><img src="image/self-propelled-howitzer-silhouette-raised-barrel-m-no-bg-preview (carve.photos).png" class="sau"></div>
+                    <h3>САУ/ПТРК</h3>
+                    <p>Слабая броня, медленный ход, мощная пушка</p>
+                    <div class="technique-stats">
+                        <div class="technique-stat">
+                            <span class="stat-value">80+</span>
+                            <span class="stat-label">Моделей</span>
+                        </div>
+                        <div class="technique-stat">
+                            <span class="stat-value">Резерв-10.0</span>
+                            <span class="stat-label">БР</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-card" onclick="window.location.href='tanks-wiki.html?category=zsu'">
+                    <div class="technique-icon"><img src="image/siluetpantsirs1.png" class="sau"></div>
+                    <h3>ЗРК/ЗСУ</h3>
+                    <p>Не дает воздушой технике легко уничтожать наземную</p>
+                    <div class="technique-stats">
+                        <div class="technique-stat">
+                            <span class="stat-value">500+</span>
+                            <span class="stat-label">Моделей</span>
+                        </div>
+                        <div class="technique-stat">
+                            <span class="stat-value">Резерв-12.7</span>
+                            <span class="stat-label">БР</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
