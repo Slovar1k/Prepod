@@ -124,6 +124,12 @@
             font-size: 12px;
             margin-bottom: 5px;
         }
+
+        .vehicle-era{
+            color: #e0e0e0;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
         
         .vehicle-type {
             color: #8a8a8a;
@@ -205,7 +211,7 @@
         <div class="container">
             <div class="hero-content">
                 <h2>ЭНЦИКЛОПЕДИЯ ФЛОТА</h2>
-                <p>Корабли еще не приплыли</p>
+                <p><strong>!Корабли еще не приплыли!</strong></p>
             </div>
         </div>
     </section>
@@ -215,11 +221,11 @@
                 <input type="text" class="search-box" placeholder="Поиск самолета..." id="searchInput">
                 <div class="category-filters">
                     <button class="category-filter active" data-category="all">Все</button>
-                    <button class="category-filter" data-category="ht">Эсминец</button>
-                    <button class="category-filter" data-category="mt">Легкий крейсер</button>
-                    <button class="category-filter" data-category="lt">Тяжелый крейсе</button>
-                    <button class="category-filter" data-category="sau">Линейный крейсер</button>
-                    <button class="category-filter" data-category="zsu">Линкор</button>
+                    <button class="category-filter" data-category="esminec">Эсминец</button>
+                    <button class="category-filter" data-category="light-kreiser">Легкий крейсер</button>
+                    <button class="category-filter" data-category="high-kreiser">Тяжелый крейсе</button>
+                    <button class="category-filter" data-category="lin-kreiser">Линейный крейсер</button>
+                    <button class="category-filter" data-category="linkor">Линкор</button>
                 </div>
             </div>
 
@@ -238,17 +244,94 @@
                         <button class="era-tab" data-era="usa-era6">VI ранг</button>
                         <button class="era-tab" data-era="usa-era7">VII ранг</button>
                     </div>
+                    <div class="era-content"id="usa-era5">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="light-kreiser">
+                                <div class="vehicle-image"><img src="image/USS Arizona.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Roanoke</div>
+                                <div class="vehicle-br">БР: 6.3</div>
+                                <div class="vehicle-type">Легкий Крейсер</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS TEXAS.webp" class="mig29"></div>
+                                <div class="vehicle-name">USS Texas</div>
+                                <div class="vehicle-br">БР: 6.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS North Dakota.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS North Dakota</div>
+                                <div class="vehicle-br">БР: 6.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="light-kreiser">
+                                <div class="vehicle-image"><img src="image/USS Wyoming.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Wyoming</div>
+                                <div class="vehicle-br">БР: 6.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="high-kreiser">
+                                <div class="vehicle-image"><img src="image/USS Pittsburgh.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Pittsburgh</div>
+                                <div class="vehicle-br">БР: 6.3</div>
+                                <div class="vehicle-type">Тяжелый Крейсер</div>
+                            </div>
+                            <div class="vehicle-card" data-type="high-kreiser">
+                                <div class="vehicle-image"><img src="image/USS Oregon City.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Oregon City</div>
+                                <div class="vehicle-br">БР: 6.3</div>
+                                <div class="vehicle-type">Легкий Крейсер</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="era-content"id="usa-era6">
                         <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Arizona.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Arizona</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Arizona.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Colorado</div>
+                                <div class="vehicle-br">БР: 7.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Nevada.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Nevada</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Tennessee.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Tennessee</div>
+                                <div class="vehicle-br">БР: 7.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Alaska.webp" class="mig29"></div>
+                                <div class="vehicle-name">USS Alaska</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="era-content"id="usa-era7">
+                    <div class="era-content active"id="usa-era7">
                         <div class="vehicle-grid">
-                        </div>
-                    </div>
-                    <div class="era-content active" id="usa-era8">
-                        <div class="vehicle-grid">
-                        
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS Iowa.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS Iowa</div>
+                                <div class="vehicle-br">БР: 8.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/USS South Dakota.jpg" class="mig29"></div>
+                                <div class="vehicle-name">USS South Dakota</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -267,11 +350,70 @@
                         <button class="era-tab" data-era="ussr-era6">VI ранг</button>
                         <button class="era-tab" data-era="ussr-era7">VII ранг</button>
                     </div>
-                    <div class="era-content" id="ussr-era7">
-                    </div>
-                    <div class="era-content active" id="ussr-era8">
+                    <div class="era-content"id="ussr-era5">
                         <div class="vehicle-grid">
-
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/полтава.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Полтава</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/парижская комунна.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Парижская коммуна</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/императрица мария.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Императрица Мария</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/измаил.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Измаил</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="era-content" id="ussr-era6">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Новороссийск.webp" class="mig29"></div>
+                                <div class="vehicle-name">Новороссийск</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Архангельск.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Архангельск</div>
+                                <div class="vehicle-br">БР: 7.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Кронштадт.webp" class="mig29"></div>
+                                <div class="vehicle-name">Кронштадт</div>
+                                <div class="vehicle-br">БР: 7.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Сталинград.png" class="mig29"></div>
+                                <div class="vehicle-name">Сталинград</div>
+                                <div class="vehicle-br">БР: 7.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="era-content active" id="ussr-era7">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Советский Союз.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Советский Союз</div>
+                                <div class="vehicle-br">БР: 8.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -290,12 +432,44 @@
                         <button class="era-tab" data-era="germany-era6">VI ранг</button>
                         <button class="era-tab" data-era="germany-era7">VII ранг</button>
                     </div>
-                    
-                    <div class="era-content active" id="germany-era8">
+                    <div class="era-content" id="germany-era6">
                         <div class="vehicle-grid">
-                          
-                                </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/SMS Bayern.webp" class="mig29"></div>
+                                <div class="vehicle-name">SMS Bayern</div>
+                                <div class="vehicle-br">БР: 7.0</div>
+                                <div class="vehicle-type">Линкор</div>
+                          </div>
+                          <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/SMS Sachsen.png" class="mig29"></div>
+                                <div class="vehicle-name">SMS Sachsen</div>
+                                <div class="vehicle-br">БР: 7.0</div>
+                                <div class="vehicle-type">Линкор</div>
+                          </div>
+                          <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Ersatz Yorck.png" class="mig29"></div>
+                                <div class="vehicle-name">Ersatz Yorck</div>
+                                <div class="vehicle-br">БР: 7.0</div>
+                                <div class="vehicle-type">Линкор</div>
+                          </div>
+                          <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Scharnhorst.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Scharnhorst</div>
+                                <div class="vehicle-br">БР: 7.0</div>
+                                <div class="vehicle-type">Линкор</div>
+                          </div>
                         </div>
+                    </div>
+                    <div class="era-content active" id="germany-era7">
+                        <div class="vehicle-grid">
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Bismarck.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Bismarck</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <!-- Великобритания -->
                     <div class="nation-section">
@@ -312,12 +486,18 @@
                         <button class="era-tab" data-era="uk-era7">VII ранг</button>
                     </div>
                     
-                    <div class="era-content active" id="uk-era8">
+                    <div class="era-content active" id="uk-era7">
                         <div class="vehicle-grid">
-                       
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/HMS Vanguard.jpg" class="mig29"></div>
+                                <div class="vehicle-name">HMS Vanguard</div>
+                                <div class="vehicle-br">БР: 8.0</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                     </div>
+                    
                 <!-- Япония -->
                     <div class="nation-section">
                     <div class="nation-header">
@@ -333,12 +513,24 @@
                         <button class="era-tab" data-era="japan-era7">VII ранг</button>
                     </div>
                     
-                    <div class="era-content active" id="japan-era8">
+                    <div class="era-content active" id="japan-era7">
                         <div class="vehicle-grid">
-                       
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/IJN Yamato.jpg" class="mig29"></div>
+                                <div class="vehicle-name">IJN Yamato</div>
+                                <div class="vehicle-br">БР: 8.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/IJN Musashi.webp" class="mig29"></div>
+                                <div class="vehicle-name">IJN Musashi</div>
+                                <div class="vehicle-br">БР: 8.7</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                     </div>
+                    
                     <!-- Италия -->
                     <div class="nation-section">
                     <div class="nation-header">
@@ -354,9 +546,20 @@
                         <button class="era-tab" data-era="italy-era7">VII ранг</button>
                     </div>
                     
-                    <div class="era-content active" id="italy-era8">
+                    <div class="era-content active" id="italy-era7">
                         <div class="vehicle-grid">
-                       
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/RN Roma.jpg" class="mig29"></div>
+                                <div class="vehicle-name">RN Roma</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/RN Italia.webp" class="mig29"></div>
+                                <div class="vehicle-name">RN Italia</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -375,9 +578,20 @@
                         <button class="era-tab" data-era="french-era7">VII ранг</button>
                     </div>
                     
-                    <div class="era-content active" id="french-era8">
+                    <div class="era-content active" id="french-era7">
                         <div class="vehicle-grid">
-                       
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Richelieu.jpg" class="mig29"></div>
+                                <div class="vehicle-name">Richelieu</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
+                            <div class="vehicle-card" data-type="linkor">
+                                <div class="vehicle-image"><img src="image/Clemenceau.jpg" class="leo"></div>
+                                <div class="vehicle-name">Clemenceau</div>
+                                <div class="vehicle-br">БР: 8.3</div>
+                                <div class="vehicle-type">Линкор</div>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -399,7 +613,7 @@
                     nationSection.querySelectorAll('.era-tab').forEach(t => t.classList.remove('active'));
                     nationSection.querySelectorAll('.era-content').forEach(c => c.classList.remove('active'));
                     
-                    // Активируем выбранный
+
                     this.classList.add('active');
                     document.getElementById(eraId).classList.add('active');
                 });
