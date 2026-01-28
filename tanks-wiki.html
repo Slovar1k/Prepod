@@ -1019,12 +1019,10 @@ function resetCategoryFilter() {
     history.replaceState({}, '', 'aviation-wiki.html');
 }
 
-// Запускаем фильтрацию по категории при загрузке
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Сначала фильтр по нации (если есть)
     handleNationFilter();
     
-    // Потом фильтр по категории (если есть)
     setTimeout(handleCategoryFilter, 1500);
 });
 </script>

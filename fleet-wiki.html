@@ -663,7 +663,7 @@
                 card.addEventListener('click', function() {
                     const vehicleName = this.querySelector('.vehicle-name').textContent;
                     const vehicleId = vehicleName.toLowerCase().replace(/\s+/g, '-');
-                    window.location.href = `vehicle-details.html?vehicle=${vehicleId}`;
+                    window.location.href = `fleet-details.html?vehicle=${vehicleId}`;
                 });
             });
         });
