@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Характеристики техники - War Thunder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/maxresdefault.png">
+    <style>
+        .vehicle-details {
+            background-color: #1a2332;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .vehicle-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ff9900;
+        }
+        
+        .vehicle-image-large {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #2a3a50, #3a4a60);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #8a8a8a;
+            flex-shrink: 0;
+        }
+        
+        .vehicle-title-section h1 {
+            color: #ff9900;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .vehicle-subtitle {
+            color: #e0e0e0;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .vehicle-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .vehicle-tag {
+            background: #2a3a50;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        
+        .vehicle-tag.br {
+            background: #ff9900;
+            color: #0a0f1e;
+            font-weight: bold;
+        }
+        
+        .info-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .info-section {
+            background-color: #2a3a50;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            color: #ff9900;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid #ff9900;
+            padding-bottom: 5px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #3a4a60;
+        }
+        
+        .spec-name {
+            color: #b0b0b0;
+        }
+        
+        .spec-value {
+            color: #ff9900;
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        .armament-list {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .armament-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #3a4a60;
+        }
+        
+        .history-section {
+            background-color: #2a3a50;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .history-text {
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff9900;
+            color: #0a0f1e;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid #ff9900;
+        }
+        
+        .back-btn:hover {
+            background-color: transparent;
+            color: #ff9900;
+        }
+        
+        @media (max-width: 768px) {
+            .vehicle-header {
+                flex-direction: column;
+            }
+            
+            .vehicle-image-large {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .info-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/maxresdefault.png" class="logowt"></div>
+                    <h1></h1>WIKI</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="aviation-wiki.html">Энциклопедия</a></li>
+                        <li><a href="nations.html">Нации</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 id="page-title">ХАРАКТЕРИСТИКИ ТЕХНИКИ</h2>
+                <p id="page-subtitle">Подробная информация о выбранной единице техники</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="vehicle-details">
+                <div id="vehicle-content">
+                </div>
+                <a href="aviation-wiki.html" class="back-btn">← Назад к энциклопедии</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const vehicleDatabase = {
+           
+
+
+
+
+
+
+            
+        };
+
+        // Загрузка данных о технике
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const vehicleId = urlParams.get('vehicle');
+            
+            if (vehicleId) {
+                loadVehicleDetails(vehicleId);
+            }
+        });
+
+        function loadVehicleDetails(vehicleId) {
+            
+            const vehicle = vehicleDatabase[vehicleId] ||
+             {
+                
+                title: vehicleId.toUpperCase().replace(/-/g, ' '),
+                subtitle: 'Многоцелевой истребитель',
+                icon: '🛩️',
+                nation: 'США',
+                type: 'Истребитель',
+                br: '12.0',
+                era: 'VIII',
+                year: '1980',
+                specifications: {},
+                performance: {},
+                armament: {},
+                systems: {},
+                history: 'Информация о данной технике находится в разработке...',
+                armament_table: ''
+            };
+            // Обновляем заголовок страницы
+            document.getElementById('page-title').textContent = vehicle.title;
+            document.getElementById('page-subtitle').textContent = 'Подробные характеристики и история';
+            const heroSection = document.querySelector('.hero');
+            if (heroSection && vehicle.background) {
+                heroSection.style.background = `linear-gradient(rgba(10, 15, 30, 0.7), rgba(10, 15, 30, 0.9)), url('${vehicle.background}') no-repeat center center/cover`;
+            }
+
+            // Создаем контент
+            const content = document.getElementById('vehicle-content');
+            content.innerHTML = `
+                <div class="vehicle-header">
+                    <div class="vehicle-image-large">${vehicle.image}</div>
+                    <div class="vehicle-title-section">
+                        <h1>${vehicle.title}</h1>
+                        <div class="vehicle-subtitle">${vehicle.subtitle}</div>
+                        <div class="vehicle-tags">
+                            <span class="vehicle-tag">${vehicle.nation}</span>
+                            <span class="vehicle-tag">${vehicle.type}</span>
+                            <span class="vehicle-tag br">БР: ${vehicle.br}</span>
+                            <span class="vehicle-tag">Ранг: ${vehicle.era}</span>
+                            <span class="vehicle-tag">Год: ${vehicle.year}</span>
+                        </div>
+                    </div>
+                </div>
+                    ${vehicle.video ? `
+    <div class="video-section">
+        <h3 class="section-title">Footage</h3>
+        <div class="video-container">
+            <iframe 
+                width="100%" 
+                height="400" 
+                src="${vehicle.video}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    ` : ''}
+                <div class="info-sections">
+                    <div class="info-section">
+                        <h3 class="section-title">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h3>
+                        <div class="specs-grid">
+                            ${Object.entries(vehicle.specifications).map(([key, value]) => `
+                                <div class="spec-item">
+                                    <span class="spec-name">${key}</span>
+                                    <span class="spec-value">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="section-title">БОЕВЫЕ ХАРАКТЕРИСТИКИ</h3>
+                        <div class="specs-grid">
+                            ${Object.entries(vehicle.performance).map(([key, value]) => `
+                                <div class="spec-item">
+                                    <span class="spec-name">${key}</span>
+                                    <span class="spec-value">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-sections">
+                    <div class="info-section">
+                        <h3 class="section-title">ВООРУЖЕНИЕ</h3>
+                        <div class="armament-list">
+                            ${Object.entries(vehicle.armament).map(([key, value]) => `
+                                <div class="armament-item">
+                                    <span class="spec-name">${key}</span>
+                                    <span class="spec-value">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="section-title">ОБОРУДОВАНИЕ</h3>
+                        <div class="specs-grid">
+                            ${Object.entries(vehicle.systems).map(([key, value]) => `
+                                <div class="spec-item">
+                                    <span class="spec-name">${key}</span>
+                                    <span class="spec-value">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="history-section">
+                    <h3 class="section-title">ИСТОРИЧЕСКАЯ СПРАВКА</h3>
+                    <div class="history-text">${vehicle.history}</div>
+                </div>
+                 ${vehicle.historyPhoto ? `
+            <div class="history-photo">
+                <h3 class="section-title">Подвесное вооружение</h3>
+                <img src="${vehicle.historyPhoto}" alt="Подвесное вооружение ${vehicle.title}" 
+                     style="width:100%; height:auto; max-height:5000px;border-radius:8px; margin-top:20px;">
+                <div style="text-align:center; color:#8a8a8a; font-size:12px; margin-top:5px;">
+                    
+                </div>
+            </div>
+            ` : ''}
+        </div>
+            `;
+        }
+    </script>
+</body>
+</html>
